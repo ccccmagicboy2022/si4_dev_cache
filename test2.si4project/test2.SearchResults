@@ -1,0 +1,4067 @@
+---- tuya Matches (435 in 66 files) ----
+app_cluster_color_control.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 6 : 
+*
+* @copyright Copyright 2020-2021 Tuya Inc. All Rights Reserved.
+*
+*/
+#include "tal_log.h"
+__app_color_z3_cmd_move_or_step_temperature_handler in app_cluster_color_control.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+
+    //tuya temper
+    tal_zg_write_attribute(1,
+                           CLUSTER_COLOR_CONTROL_CLUSTER_ID,
+                           TY_ATTR_COLOR_TEMPERATURE_ATTR_ID,
+app_cluster_color_control.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 221 : 
+/**
+ * @note report tuya temperature attribute value
+ * @param [in] {TAL_SEND_QOS_E} qos 
+ * @param [in] {USHORT_T} delay_ms
+ * @param [in] {USHORT_T} temperature
+app_color_report_ty_temperature_value in app_cluster_color_control.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+    send_data.addr.mode = SEND_MODE_DEV;
+    send_data.addr.type.dev.dst_addr = TUYA_GATEWAY_ADDRESS;
+    send_data.addr.type.dev.src_ep = 1;
+    send_data.addr.type.dev.dst_ep = 1;
+    send_data.addr.type.dev.cluster_id = CLUSTER_COLOR_CONTROL_CLUSTER_ID;
+app_cluster_color_control.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\include) line 7 : 
+#endif
+#include "tuya_cloud_types.h"
+#include "app_light_control.h"
+#include "app_cluster_on_off.h"
+#include "app_light_tools.h"
+app_cluster_level.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 6 : 
+*
+* @copyright Copyright 2020-2021 Tuya Inc. All Rights Reserved.
+*
+*/
+#include "tal_log.h"
+app_cluster_level.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 20 : 
+/**
+ * @note set tuya private bright cmd handler
+ * @param [in] {ZIGBEE_CMD_T} cmd_type
+ * @param [in] {USHORT_T } bright (0-1000)
+ * @return: none
+__app_level_z3_cmd_move_to_level_handler in app_cluster_level.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+
+    // for tuya special operation
+    app_light_ctrl_remain_time_ms_get(&remain_time);
+    if (remain_time != 0)
+    {
+app_level_report_ty_bright_value in app_cluster_level.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+    send_data.addr.mode = SEND_MODE_DEV;
+    send_data.addr.type.dev.dst_addr = TUYA_GATEWAY_ADDRESS;
+    send_data.addr.type.dev.cluster_id = CLUSTER_LEVEL_CONTROL_CLUSTER_ID;
+    send_data.addr.type.dev.src_ep = 1;
+    send_data.addr.type.dev.dst_ep = 1;
+app_cluster_level.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\include) line 8 : 
+
+#include "tuya_cloud_types.h"
+#include "app_light_control.h"
+#include "app_cluster_on_off.h"
+#include "app_light_control.h"
+app_cluster_on_off.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 6 : 
+*
+* @copyright Copyright 2020-2021 Tuya Inc. All Rights Reserved.
+*
+*/
+#include "tal_log.h"
+app_cluster_on_off.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 16 : 
+
+#define TY_CMD_SET_COUNT_DOWN_CMD_ID 0xF0 ///<   tuya private cmd
+#define COUNT_DOWN_MAX 86400
+
+STATIC UCHAR_T count_down_report_onoff_flag = FALSE;
+app_onoff_report_value in app_cluster_on_off.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+    send_data.addr.mode = SEND_MODE_DEV;
+    send_data.addr.type.dev.dst_addr = TUYA_GATEWAY_ADDRESS;
+    send_data.addr.type.dev.dst_ep = 0x01;
+    send_data.addr.type.dev.src_ep = TUYA_PRIMARY_ENDPOINT;
+    send_data.addr.type.dev.cluster_id = CLUSTER_ON_OFF_CLUSTER_ID;
+
+    send_data.data.zg.attr_sum = 1;
+app_onoff_cluster_handler in app_cluster_on_off.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+    {
+        //tuya Countdown
+        count_down_data = (ULONG_T)payload[0] + ((ULONG_T)payload[1] << 8) + ((ULONG_T)payload[2] << 16) + ((ULONG_T)payload[3] << 24);
+        app_onoff_set_count_down_report_flag_time(TRUE, 1000);
+        app_onoff_data_count_down_set(count_down_data);
+app_cluster_on_off.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\include) line 8 : 
+
+#include "tuya_cloud_types.h"
+#include "app_light_control.h"
+#include "app_common.h"
+#include "app_light_tools.h"
+app_common.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 6 : 
+*
+* @copyright Copyright 2020-2021 Tuya Inc. All Rights Reserved.
+*
+*/
+#include "tkl_pwm.h"
+app_common.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 33 : 
+#define pwm_frequency           1000
+#define pwm_polarity            TUYA_PWM_POSITIVE
+
+#define KEY_SCAN_MAX_CNT        250
+#define PIN_NUM_ERROR           0xFF
+#define TUYA_FLASH_PAGE_SIZE    (8 * 1024UL)
+
+
+extern TIMER_ID etimer_shande;
+app_common.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 53 : 
+
+TUYA_PWM_POLARITY_E g_pwm_bPolarity = TUYA_PWM_NEGATIVE;
+BOOL_T g_user_pwm_init_flag = FALSE;
+
+extern OPERATE_RET tkl_pwm_mapping_to_gpio(UINT32_T ch_id, UINT32_T gpio_id);
+__dev_power_on_reset_data in app_common.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+    app_light_ctrl_data_switch_set(v_app_dcb.onoff);
+    app_light_ctrl_data_mode_set(WHITE_MODE);            ///< tuya private light mode set
+    app_light_ctrl_data_bright_set(v_app_dcb.bright, 0); ///< tuya private bright set
+    TAL_PR_DEBUG("nwk_type =%d", nwk_type);
+
+    app_light_ctrl_data_temp_set(v_app_dcb.temperature, 0);
+dev_uart_output in app_common.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+{
+    tal_uart_write((TUYA_UART_NUM_E)USER_UART0, (CONST UINT8_T *)str, strlen(str));
+}
+/**
+ * @brief 
+app_pwm_init in app_common.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+
+    tkl_pwm_mapping_to_gpio((UINT32_T)TUYA_PWM_NUM_0, USER_PWM_CH0_PIN); //PB1
+    tkl_pwm_mapping_to_gpio((UINT32_T)TUYA_PWM_NUM_1, USER_PWM_CH1_PIN); //PA4
+    
+    TUYA_PWM_BASE_CFG_T v_cfg = {
+        .duty = 0,
+        .frequency = pwm_frequency,
+        .polarity = pwm_polarity,
+app_pwm_init in app_common.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+
+    tkl_pwm_idle_level_set(TUYA_PWM_NUM_0, 0);
+    tkl_pwm_idle_level_set(TUYA_PWM_NUM_1, 0);
+    
+    v_ret = tkl_pwm_init(TUYA_PWM_NUM_0, &v_cfg);
+    v_ret = tkl_pwm_init(TUYA_PWM_NUM_1, &v_cfg);
+
+    tkl_pwm_start(TUYA_PWM_NUM_0);
+
+    g_user_pwm_init_flag = TRUE;
+    g_pwm_bPolarity = pwm_polarity;
+app_button_init in app_common.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+{
+    TUYA_GPIO_IRQ_T irq_cfg = {
+        .mode = TUYA_GPIO_IRQ_FALL,
+        .cb = __dev_pin_irq_handle,
+        .arg = NULL,
+    };
+app_button_scan_cb in app_common.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+{
+    TUYA_GPIO_LEVEL_E v_level = TUYA_GPIO_LEVEL_HIGH;
+
+    if (OPRT_OK != tal_gpio_read(USER_KEY0, &v_level))
+    {
+app_button_scan_cb in app_common.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+
+    if (v_level == TUYA_GPIO_LEVEL_HIGH)
+    {
+        sg_key_scan_cnt = 0;
+    }
+app_common.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\include) line 10 : 
+#include "tal_sw_timer.h"
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+/**************************************************************************
+ *                              global  variable
+ * ************************************************************************/
+#define GPIO_PA0            TUYA_GPIO_NUM_0
+#define GPIO_PA1            TUYA_GPIO_NUM_1
+#define GPIO_PA2            TUYA_GPIO_NUM_2
+#define GPIO_PA3            TUYA_GPIO_NUM_3
+#define GPIO_PA4            TUYA_GPIO_NUM_4
+#define GPIO_PA5            TUYA_GPIO_NUM_5
+#define GPIO_PA6            TUYA_GPIO_NUM_6
+#define GPIO_PB0            TUYA_GPIO_NUM_7
+#define GPIO_PB1            TUYA_GPIO_NUM_8
+#define GPIO_PC0            TUYA_GPIO_NUM_9
+#define GPIO_PC1            TUYA_GPIO_NUM_10
+#define GPIO_PC2            TUYA_GPIO_NUM_11
+#define GPIO_PC3            TUYA_GPIO_NUM_12
+#define GPIO_PC4            TUYA_GPIO_NUM_13
+#define GPIO_PC5            TUYA_GPIO_NUM_14
+#define GPIO_PD0            TUYA_GPIO_NUM_15
+#define GPIO_PD1            TUYA_GPIO_NUM_16
+#define GPIO_PD2            TUYA_GPIO_NUM_17
+#define GPIO_PD3            TUYA_GPIO_NUM_18
+#define GPIO_PD4            TUYA_GPIO_NUM_19
+
+#define USER_KEY0           GPIO_PD1
+#define USER_PWM_CH0_PIN    GPIO_PB1
+#define USER_PWM_CH1_PIN    GPIO_PA4
+#define USER_UART0          TUYA_UART_NUM_0
+
+
+#define KV_ID_RST_CNT 	    (0u)
+app_config.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 5 : 
+#include "app_config.h"
+#include "tuya_iot_config.h"
+#include "tal_firmware_cfg.h"
+
+
+OPERATE_RET tuya_app_firmware_config(VOID_T)
+{
+    CHAR_T *model_id = MODEL_ID;
+    CHAR_T *prefix = PID_ID_PFEFIX;
+app_config.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 19 : 
+
+OPERATE_RET tuya_sdk_information_config(VOID_T)
+{
+    CHAR_T *sdk_ver = IOT_SDK_VER;
+    CHAR_T *kcfg_ver = "0.0.0";
+    CHAR_T *kernel_ver = KERNEL_VERSION;
+    return tal_tuyaos_info_init(sdk_ver, kcfg_ver, kernel_ver);
+}
+
+
+app_light_control.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 6 : 
+*
+* @copyright Copyright 2020-2021 Tuya Inc. All Rights Reserved.
+*
+*/
+
+app_light_control.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 56 : 
+extern UINT8_T g_user_pwm_init_flag;
+extern TUYA_PWM_POLARITY_E g_pwm_bPolarity;
+
+extern TIMER_ID etimer_clear_rst;
+extern TIMER_ID etimer_blink_sw;
+__app_ctrl_pwm_duty_set in app_light_control.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+
+    TUYA_PWM_BASE_CFG_T v_dcb = {
+        .duty = duty,
+        .frequency = 1000,
+        .polarity = g_pwm_bPolarity,
+__app_ctrl_pwm_duty_set in app_light_control.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+
+    if (OPRT_OK != tal_pwm_info_set((TUYA_PWM_NUM_E)channel, &v_dcb))
+    {
+        TAL_PR_DEBUG("PWM SET DUTY ERR");
+    }
+__app_light_ctrl_rgbcw_set in app_light_control.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+    }
+    if (g_pwm_bPolarity == TUYA_PWM_NEGATIVE)
+    {
+        r_value = MAX_DUTY - r_value;
+        g_value = MAX_DUTY - g_value;
+app_light_tools.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 6 : 
+*
+* @copyright Copyright 2020-2021 Tuya Inc. All Rights Reserved.
+*
+*/
+#include "app_light_tools.h"
+app_light_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\include) line 8 : 
+
+#include "tuya_cloud_types.h"
+#include "app_light_control.h"
+
+/**
+tal_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\components\app_tuya_driver\src) line 2 : 
+ * @file tal_adc.c
+ * @brief This is tuya tal_adc file
+ * @version 1.0
+ * @date 2021-09-10
+ *
+ * @copyright Copyright 2021-2031 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tal_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\components\app_tuya_driver\src) line 39 : 
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_adc_init(TUYA_ADC_NUM_E port_num, TUYA_ADC_BASE_CFG_T *cfg)
+{
+    return tkl_adc_init(port_num, cfg);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_adc_deinit(TUYA_ADC_NUM_E port_num)
+{
+    return tkl_adc_deinit(port_num);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_adc_read_data(TUYA_ADC_NUM_E port_num, INT32_T *buff, UINT16_T len)
+{
+    return tkl_adc_read_data(port_num, buff, len);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_adc_read_single_channel(TUYA_ADC_NUM_E port_num, UINT8_T ch_num, INT32_T *buf)
+{
+    return tkl_adc_read_single_channel(port_num, ch_num, buf);
+}
+
+TUYA_WEAK_ATTRIBUTE UINT8_T tal_adc_width_get(TUYA_ADC_NUM_E port_num)
+{
+    return tkl_adc_width_get(port_num);
+}
+
+TUYA_WEAK_ATTRIBUTE INT32_T tal_adc_temperature_get(VOID_T)
+{
+    return tkl_adc_temperature_get();
+}
+
+TUYA_WEAK_ATTRIBUTE UINT32_T tal_adc_ref_voltage_get(TUYA_ADC_NUM_E port_num)
+{
+    return tkl_adc_ref_voltage_get(port_num);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_adc_read_voltage(TUYA_ADC_NUM_E port_num, INT32_T *buff, UINT16_T len)
+{
+    return tkl_adc_read_voltage(port_num, buff, len);
+}
+tal_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 6 : 
+ *
+ * @copyright Copyright 2021-2025 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tal_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 13 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tal_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 21 : 
+/**
+ * @brief tuya hal adc init
+ * 
+ * @param[in] port_num: adc port number
+ * @param[in] cfg: adc config
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_adc_init(TUYA_ADC_NUM_E port_num, TUYA_ADC_BASE_CFG_T *cfg);
+
+/**
+ * @brief adc deinit
+tal_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 35 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_adc_deinit(TUYA_ADC_NUM_E port_num);
+
+/**
+ * @brief adc read
+tal_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 46 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_adc_read_data(TUYA_ADC_NUM_E port_num, INT32_T *buff, UINT16_T len);
+
+/**
+ * @brief read single channel
+tal_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 57 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ *
+ */
+OPERATE_RET tal_adc_read_single_channel(TUYA_ADC_NUM_E port_num, UINT8_T ch_num, INT32_T *buf);
+
+
+/**
+tal_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 70 : 
+ */
+UINT8_T tal_adc_width_get(TUYA_ADC_NUM_E port_num);
+
+/**
+ * @brief adc get temperature
+tal_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 86 : 
+ */
+UINT32_T tal_adc_ref_voltage_get(TUYA_ADC_NUM_E port_num);
+
+/**
+ * @brief read voltage
+tal_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 95 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ *
+ */
+OPERATE_RET tal_adc_read_voltage(TUYA_ADC_NUM_E port_num, INT32_T *buff, UINT16_T len);
+
+
+#ifdef __cplusplus
+tal_attribute_rw.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_ATTRIBUTE_RW_H__
+tal_attribute_rw.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+
+/**
+tal_attribute_rw.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 30 : 
+ * @param[in]   type: type of attribute
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_zg_write_attribute(UINT8_T endpoint,
+                                UINT16_T cluster,
+tal_attribute_rw.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 47 : 
+ * @param[in]   length:   length of attribute data
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_zg_read_attribute(UINT8_T endpoint,
+                                UINT16_T cluster,
+tal_data_receive.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_DATA_RECEIVE_H__
+tal_data_receive.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+
+/**
+tal_data_send.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_DATA_SEND_H__
+tal_data_send.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+
+/**
+{anonTAL_ZG_SEND_DATA_T} in tal_data_send.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) : 
+    UINT8_T  zcl_id;                    ///< applicaiton sequence number(0x00~0xF0 for user, 0xF0~0xFF for SDK)
+    UINT8_T  command_id;                ///< zcl command id, the detail in tuya_zigbee_commmand.h
+    ZG_ZCL_FRAME_TYPE_E frame_type;     ///< zcl frame type
+    ZG_ZCL_DATA_DIRECTION_E direction;  ///< data transmission direction
+    TAL_SEND_QOS_E qos;                 ///< data service quality
+tal_endpoint_register.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tal_endpoint_register.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 18 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+
+/* 
+tal_end_device.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_END_DEVICE_H__
+tal_end_device.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+
+/*
+tal_firmware_cfg.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tal_firmware_cfg.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 18 : 
+
+#include "tuya_cloud_types.h"
+
+/**
+ * @enum zigbee firmware information struct
+tal_firmware_cfg.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 42 : 
+ * @param[in]   image_type: OTA image type
+* @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_firmware_info_init(CHAR_T *model_id, 
+                                    CHAR_T *pid_prefix, 
+tal_firmware_cfg.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 61 : 
+/**
+ * @brief tuyaos sdk information init
+ *
+ * @param[in]   sdk_ver:    sdk version
+ * @param[in]   kcfg_ver:   kernel kconfig version
+ * @param[in]   kernel_ver: kernel version
+* @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_tuyaos_info_init(CHAR_T *sdk_ver, 
+                                 CHAR_T *kcfg_ver, 
+                                 CHAR_T *kernel_ver);
+
+/**
+ * @brief tuyaos sdk  information read
+ *
+ * @param[in]   none
+* @return point to tuyaos sdk information
+ */
+CHAR_T* tal_tuyaos_info_read(VOID_T);
+
+
+#ifdef __cplusplus
+tal_flash.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 6 : 
+*
+* @copyright Copyright 2021-2030 Tuya Inc. All Rights Reserved.
+*
+*/
+#ifndef __TAL_FLASH_H__
+tal_flash.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 12 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tal_flash.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 28 : 
+*
+* @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+*/
+OPERATE_RET tal_flash_read(UINT32_T addr, UCHAR_T *dst, UINT32_T size);
+
+tal_flash.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 41 : 
+*
+* @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+*/
+OPERATE_RET tal_flash_write(UINT32_T addr, CONST UCHAR_T *src, UINT32_T size);
+
+tal_flash.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 53 : 
+*
+* @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+*/
+OPERATE_RET tal_flash_erase(UINT32_T addr, UINT32_T size);
+
+tal_flash.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 65 : 
+*
+* @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+*/
+OPERATE_RET tal_flash_lock(UINT32_T addr, UINT32_T size);
+
+tal_flash.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 77 : 
+*
+* @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+*/
+OPERATE_RET tal_flash_unlock(UINT32_T addr, UINT32_T size);
+
+tal_flash.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 89 : 
+*
+* @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+*/
+OPERATE_RET tal_flash_get_one_type_info(TUYA_FLASH_TYPE_E type, TUYA_FLASH_BASE_INFO_T* info);
+
+
+
+tal_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\components\app_tuya_driver\src) line 2 : 
+ * @file tal_gpio.c
+ * @brief This is tuya tal_gpio file
+ * @version 1.0
+ * @date 2021-09-10
+ *
+ * @copyright Copyright 2021-2031 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tal_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\components\app_tuya_driver\src) line 39 : 
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_gpio_init(TUYA_GPIO_NUM_E pin_id, TUYA_GPIO_BASE_CFG_T *cfg)
+{
+    return tkl_gpio_init(pin_id, cfg);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_gpio_deinit(TUYA_GPIO_NUM_E pin_id)
+{
+    return tkl_gpio_deinit(pin_id);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_gpio_write(TUYA_GPIO_NUM_E pin_id, TUYA_GPIO_LEVEL_E level)
+{
+    return tkl_gpio_write(pin_id, level);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_gpio_read(TUYA_GPIO_NUM_E pin_id, TUYA_GPIO_LEVEL_E *level)
+{
+    return tkl_gpio_read(pin_id, level);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_gpio_irq_init(TUYA_GPIO_NUM_E pin_id, TUYA_GPIO_IRQ_T *cfg)
+{
+    return tkl_gpio_irq_init(pin_id, cfg);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_gpio_irq_enable(TUYA_GPIO_NUM_E pin_id)
+{
+    return tkl_gpio_irq_enable(pin_id);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_gpio_irq_disable(TUYA_GPIO_NUM_E pin_id)
+{
+    return tkl_gpio_irq_disable(pin_id);
+}
+
+tal_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 6 : 
+ *
+ * @copyright Copyright 2021-2031 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tal_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 13 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tal_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 26 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_gpio_init(TUYA_GPIO_NUM_E pin_id, TUYA_GPIO_BASE_CFG_T *cfg);
+
+/**
+ * @brief gpio deinit
+tal_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 35 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_gpio_deinit(TUYA_GPIO_NUM_E pin_id);
+
+/**
+ * @brief gpio write
+tal_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 45 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_gpio_write(TUYA_GPIO_NUM_E pin_id, TUYA_GPIO_LEVEL_E level);
+
+/**
+ * @brief gpio read
+tal_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 55 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_gpio_read(TUYA_GPIO_NUM_E pin_id, TUYA_GPIO_LEVEL_E *level);
+
+/**
+ * @brief gpio irq init
+tal_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 66 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_gpio_irq_init(TUYA_GPIO_NUM_E pin_id, TUYA_GPIO_IRQ_T *cfg);
+
+/**
+ * @brief gpio irq enable
+tal_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 75 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_gpio_irq_enable(TUYA_GPIO_NUM_E pin_id);
+
+/**
+ * @brief gpio irq disable
+tal_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 84 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_gpio_irq_disable(TUYA_GPIO_NUM_E pin_id);
+
+
+#ifdef __cplusplus
+tal_heartbeat.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_HEARTBEAT_H__
+tal_heartbeat.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+
+/**
+tal_i2c.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\components\app_tuya_driver\src) line 2 : 
+ * @file tal_i2c.c
+ * @brief This is tuya tal_i2c file
+ * @version 1.0
+ * @date 2021-09-10
+ *
+ * @copyright Copyright 2021-2031 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tal_i2c.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\components\app_tuya_driver\src) line 37 : 
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_init(TUYA_I2C_NUM_E port_num, TUYA_IIC_BASE_CFG_T *cfg)
+{
+    return tkl_i2c_init(port_num, cfg);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_control(TUYA_I2C_NUM_E port_num, UINT8_T cmd, VOID_T *arg)
+{
+    return OPRT_NOT_SUPPORTED;
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_deinit(TUYA_I2C_NUM_E port_num)
+{
+    return tkl_i2c_deinit(port_num);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_master_send(TUYA_I2C_NUM_E port_num, UINT16_T addr, VOID_T *buf, UINT16_T count)
+{
+    return tkl_i2c_master_send(port_num, addr, buf, count, TRUE);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_master_receive(TUYA_I2C_NUM_E port_num, UINT16_T addr, VOID_T *buf, UINT16_T count)
+{
+    return tkl_i2c_master_receive(port_num, addr, buf, count, TRUE);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_irq_init(TUYA_I2C_NUM_E port_num, CONST TUYA_I2C_IRQ_CB *cb)
+{
+    return tkl_i2c_irq_init(port_num, cb);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_irq_enable(TUYA_I2C_NUM_E port_num)
+{
+    return tkl_i2c_irq_enable(port_num);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_irq_disable(TUYA_I2C_NUM_E port_num)
+{
+    return tkl_i2c_irq_disable(port_num);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_set_slave_addr(TUYA_I2C_NUM_E port_num, UINT16_T dev_addr)
+{
+    return tkl_i2c_set_slave_addr(port_num, dev_addr);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_slave_send(TUYA_I2C_NUM_E port_num, CONST VOID *data, UINT32_T size)
+{
+    return tkl_i2c_slave_send(port_num, data, size);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_slave_receive(TUYA_I2C_NUM_E port_num, VOID *data, UINT32_T size)
+{
+    return tkl_i2c_slave_receive(port_num, data, size);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_get_status(TUYA_I2C_NUM_E port_num, TUYA_IIC_STATUS_T *status)
+{
+    *status = tkl_i2c_get_status(port_num);
+    return OPRT_OK;
+tal_i2c.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\components\app_tuya_driver\src) line 98 : 
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_i2c_reset(TUYA_I2C_NUM_E port_num)
+{
+    return tkl_i2c_reset(port_num);
+}
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 13 : 
+
+#include "tuya_cloud_types.h"
+
+/**
+ * @brief i2c init
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 22 : 
+ */
+OPERATE_RET tal_i2c_init(TUYA_I2C_NUM_E port_num, TUYA_IIC_BASE_CFG_T *cfg);
+
+/**
+ * @brief i2c control
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 33 : 
+ */
+OPERATE_RET tal_i2c_control(TUYA_I2C_NUM_E port_num, UINT8_T cmd, VOID_T *arg);
+
+/**
+ * @brief i2c deinit
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 42 : 
+ */
+OPERATE_RET tal_i2c_deinit(TUYA_I2C_NUM_E port_num);
+
+/**
+ * @brief i2c master send
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 54 : 
+ */
+OPERATE_RET tal_i2c_master_send(TUYA_I2C_NUM_E port_num, UINT16_T addr, VOID_T *buf, UINT16_T count);
+
+/**
+ * @brief i2c master recv
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 66 : 
+ */
+OPERATE_RET tal_i2c_master_receive(TUYA_I2C_NUM_E port_num, UINT16_T addr, VOID_T *buf, UINT16_T count);
+
+/**
+ * @brief i2c irq init
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 75 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_i2c_irq_init(TUYA_I2C_NUM_E port_num, CONST TUYA_I2C_IRQ_CB *cb);
+
+/**
+ * @brief i2c irq enable
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 84 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_i2c_irq_enable(TUYA_I2C_NUM_E port_num);
+
+/**
+ * @brief i2c irq disable
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 93 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_i2c_irq_disable(TUYA_I2C_NUM_E port_num);
+
+/**
+ * @brief i2c slave
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 105 : 
+ */
+OPERATE_RET tal_i2c_set_slave_addr(TUYA_I2C_NUM_E port_num, UINT16_T dev_addr);
+
+/**
+ * @brief i2c slave send
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 116 : 
+
+OPERATE_RET tal_i2c_slave_send(TUYA_I2C_NUM_E port_num, CONST VOID *data, UINT32_T size);
+
+/**
+ * @brief IIC slave receive, Start receiving data as IIC Slave.
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 127 : 
+
+OPERATE_RET tal_i2c_slave_receive(TUYA_I2C_NUM_E port_num, VOID *data, UINT32_T size);
+
+/**
+ * @brief IIC get status.
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 133 : 
+ * @param[in] port: i2c port
+ * @return TUYA_IIC_STATUS_T,please refer to tuya_cloud_types.h
+ */
+OPERATE_RET tal_i2c_get_status(TUYA_I2C_NUM_E port_num, TUYA_IIC_STATUS_T *status);
+
+/**
+ * @brief i2c's reset
+tal_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 142 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET  tal_i2c_reset(TUYA_I2C_NUM_E port_num);
+
+
+#endif
+tal_log.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 6 : 
+*
+* @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+*
+*/
+#ifndef _TAL_LOG_H_
+tal_log.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 12 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tal_log.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 107 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_log_create_manage_and_init(CONST TAL_LOG_LEVEL_E level, CONST INT_T buf_len, CONST TAL_LOG_OUTPUT_CB output);
+
+tal_log.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 119 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_log_add_output_term(CONST CHAR_T *name, CONST TAL_LOG_OUTPUT_CB term);
+
+tal_log.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 141 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_log_set_manage_attr(CONST TAL_LOG_LEVEL_E level);
+
+tal_log.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 152 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_log_set_manage_ms_info(BOOL_T if_ms_level);
+
+tal_log.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 163 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_log_get_log_manage_attr(TAL_LOG_LEVEL_E *level);
+/**
+tal_log.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 174 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_log_add_module_level(CONST PCHAR_T module_name, CONST TAL_LOG_LEVEL_E level);
+
+tal_log.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 186 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_log_set_module_level(CONST PCHAR_T module_name, TAL_LOG_LEVEL_E level);
+/**
+tal_log.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 197 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_log_get_module_level(CONST PCHAR_T module_name, TAL_LOG_LEVEL_E *level);
+
+tal_log.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 208 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_log_delete_module_level(CONST PCHAR_T module_name);
+
+tal_log.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 220 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_log_print_raw(CONST PCHAR_T pFmt,...);
+
+tal_memory.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 6 : 
+*
+ * @copyright Copyright 2021-2031 Tuya Inc. All Rights Reserved.
+*
+*/
+#ifndef __TAL_MEMORY_H__
+tal_memory.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 12 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tal_network_mgr.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_NETWORK_MGR_H__
+tal_network_mgr.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+#include "tal_end_device.h"
+#include "tal_poll_manager.h"
+tal_network_mgr.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 145 : 
+ * @param[in]   config: point to node configuration
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_zg_node_config(TAL_ZG_NODE_CFG_T *config);
+
+tal_network_mgr.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 153 : 
+ * @param[in]   config: point to join configuration
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_zg_join_config(TAL_ZG_JOIN_CFG_T *config);
+
+tal_nv_flash.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 9 : 
+
+#include "tuya_cloud_types.h"
+
+typedef enum {
+    TAL_KV_SUCC = 0,
+tal_poll_manager.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_POLL_MANAGER_H__
+tal_poll_manager.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+
+/*
+tal_poll_manager.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 48 : 
+ * @param[in]   none
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_zg_poll_send(VOID_T);
+
+tal_poll_manager.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 74 : 
+ */
+VOID_T tuya_zg_poll_interval_set(UINT16_T interval_ms);
+
+/**
+ * @brief set the maximum number of polling failures
+tal_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\components\app_tuya_driver\src) line 2 : 
+ * @file tal_pwm.c
+ * @brief This is tuya tal_pwm file
+ * @version 1.0
+ * @date 2021-09-10
+ *
+ * @copyright Copyright 2021-2031 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tal_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\components\app_tuya_driver\src) line 39 : 
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_pwm_init(TUYA_PWM_NUM_E ch_id, TUYA_PWM_BASE_CFG_T *cfg)
+{
+    return tkl_pwm_init(ch_id, cfg);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_pwm_deinit(TUYA_PWM_NUM_E ch_id)
+{
+    return tkl_pwm_deinit(ch_id);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_pwm_start(TUYA_PWM_NUM_E ch_id)
+{
+    return tkl_pwm_start(ch_id);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_pwm_stop(TUYA_PWM_NUM_E ch_id)
+{
+    return tkl_pwm_stop(ch_id);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_pwm_duty_set(TUYA_PWM_NUM_E ch_id, UINT32_T duty)
+{
+    return tkl_pwm_duty_set(ch_id, duty);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_pwm_frequency_set(TUYA_PWM_NUM_E ch_id, UINT32_T frequency)
+{
+    return tkl_pwm_frequency_set(ch_id, frequency);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_pwm_polarity_set(TUYA_PWM_NUM_E ch_id, TUYA_PWM_POLARITY_E polarity)
+{
+    return tkl_pwm_polarity_set(ch_id, polarity);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_pwm_info_set(TUYA_PWM_NUM_E ch_id, CONST TUYA_PWM_BASE_CFG_T *info)
+{
+    return tkl_pwm_info_set(ch_id, info);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_pwm_info_get(TUYA_PWM_NUM_E ch_id, TUYA_PWM_BASE_CFG_T *info)
+{
+    return tkl_pwm_info_get(ch_id, info);
+}
+tal_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 6 : 
+ *
+ * @copyright Copyright 2021-2031 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tal_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 13 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tal_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 26 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_pwm_init(TUYA_PWM_NUM_E ch_id, TUYA_PWM_BASE_CFG_T *cfg);
+
+/**
+ * @brief pwm deinit
+tal_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 35 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_pwm_deinit(TUYA_PWM_NUM_E ch_id);
+
+/**
+ * @brief pwm start
+tal_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 44 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_pwm_start(TUYA_PWM_NUM_E ch_id);
+
+/**
+ * @brief pwm stop
+tal_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 53 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_pwm_stop(TUYA_PWM_NUM_E ch_id);
+
+/**
+ * @brief pwm duty set
+tal_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 63 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_pwm_duty_set(TUYA_PWM_NUM_E ch_id, UINT32_T duty);
+
+/**
+ * @brief pwm frequency set
+tal_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 73 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_pwm_frequency_set(TUYA_PWM_NUM_E ch_id, UINT32_T frequency);
+
+/**
+ * @brief pwm polarity set
+tal_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 83 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_pwm_polarity_set(TUYA_PWM_NUM_E ch_id, TUYA_PWM_POLARITY_E polarity);
+
+/**
+ * @brief set pwm info
+tal_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 93 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_pwm_info_set(TUYA_PWM_NUM_E ch_id, CONST TUYA_PWM_BASE_CFG_T *info);
+
+/**
+ * @brief get pwm info
+tal_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 103 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_pwm_info_get(TUYA_PWM_NUM_E ch_id, TUYA_PWM_BASE_CFG_T *info);
+
+
+#ifdef __cplusplus
+tal_reset_factory.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_RESET_FACTORY_H__
+tal_reset_factory.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+/*
+ *  reset to factory type
+tal_spi.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\components\app_tuya_driver\src) line 2 : 
+ * @file tal_spi.c
+ * @brief This is tuya tal_spi file
+ * @version 1.0
+ * @date 2021-09-10
+ *
+ * @copyright Copyright 2021-2031 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tal_spi.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\components\app_tuya_driver\src) line 40 : 
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_spi_init(TUYA_SPI_NUM_E port_num, TUYA_SPI_BASE_CFG_T *cfg)
+{
+    return tkl_spi_init(port_num, cfg);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_spi_xfer(TUYA_SPI_NUM_E port_num, VOID_T *send_buf, VOID_T *recv_buf, UINT32_T length)
+{
+    return tkl_spi_transfer(port_num, send_buf, recv_buf, length);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_spi_xfer_msg(TUYA_SPI_NUM_E port_num, TAL_SPI_MSG_T *msg, UINT8_T num)
+{
+    OPERATE_RET ret = 0;
+
+tal_spi.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\components\app_tuya_driver\src) line 61 : 
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_spi_control(TUYA_SPI_NUM_E port_num, UINT8_T cmd, VOID_T *arg)
+{
+    return OPRT_NOT_SUPPORTED;
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_spi_deinit(TUYA_SPI_NUM_E port_num)
+{
+    return tkl_spi_deinit(port_num);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_spi_send(TUYA_SPI_NUM_E port_num, VOID_T *data, UINT16_T size)
+{
+    return tkl_spi_send(port_num, data, size);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_spi_recv(TUYA_SPI_NUM_E port_num, VOID_T *data, UINT16_T size)
+{
+    return tkl_spi_recv(port_num, data, size);
+}
+
+TUYA_WEAK_ATTRIBUTE OPERATE_RET tal_spi_abort_transfer(TUYA_SPI_NUM_E port_num)
+{
+    return tkl_spi_abort_transfer(port_num);
+}
+tal_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 6 : 
+ *
+ * @copyright Copyright 2021-2025 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tal_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 13 : 
+
+#include "tuya_cloud_types.h"
+
+typedef struct {
+    VOID            *send_buf;
+tal_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 28 : 
+ */
+OPERATE_RET tal_spi_init(TUYA_SPI_NUM_E port_num, TUYA_SPI_BASE_CFG_T *cfg);
+
+
+/**
+tal_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 41 : 
+ */
+OPERATE_RET tal_spi_xfer(TUYA_SPI_NUM_E port_num, VOID_T *send_buf, VOID_T *recv_buf, UINT_T length);
+
+/**
+ * @brief spi xfer msg
+tal_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 52 : 
+ */
+OPERATE_RET tal_spi_xfer_msg(TUYA_SPI_NUM_E port_num, TAL_SPI_MSG_T *msg, UINT8_T num);
+
+
+/**
+tal_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 64 : 
+ */
+OPERATE_RET tal_spi_control(TUYA_SPI_NUM_E port_num, UINT8_T cmd, VOID_T *arg);
+
+/**
+ * @brief spi deinit
+tal_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 73 : 
+ */
+OPERATE_RET tal_spi_deinit(TUYA_SPI_NUM_E port_num);
+
+
+/**
+tal_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 83 : 
+ *
+ * @return  OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_spi_send(TUYA_SPI_NUM_E port_num, VOID_T *data, UINT16_T size);
+
+/**
+ * spi_recv
+tal_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 94 : 
+ *
+ * @return  OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_spi_recv(TUYA_SPI_NUM_E port_num, VOID_T *data, UINT16_T size);
+
+/**
+ * @brief adort spi transfer,or spi send, or spi recv
+tal_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\app_tuya_driver\include) line 103 : 
+ * 
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+
+OPERATE_RET tal_spi_abort_transfer(TUYA_SPI_NUM_E port_num);
+
+#define tal_spi_send_then_send(spi, send1, len1, send2, len2)              \
+    do {                                                                    \
+tal_sw_timer.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 6 : 
+*
+ * @copyright Copyright 2021-2031 Tuya Inc. All Rights Reserved.
+*
+*/
+#ifndef __TAL_SW_TIMER_H__
+tal_sw_timer.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 12 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tal_sw_timer.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 36 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_sw_timer_init(VOID_T);
+
+tal_sw_timer.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 49 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_sw_timer_create(TAL_TIMER_CB func, VOID_T *arg, TIMER_ID *timer_id);
+
+tal_sw_timer.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 60 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_sw_timer_delete(TIMER_ID timer_id);
+
+tal_sw_timer.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 71 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_sw_timer_stop(TIMER_ID timer_id);
+
+tal_sw_timer.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 95 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_sw_timer_start(TIMER_ID timer_id, TIME_MS time_ms, TIMER_TYPE timer_type);
+
+tal_sw_timer.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 107 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_sw_timer_trigger(TIMER_ID timer_id);
+
+tal_sw_timer.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 119 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_sw_timer_release(VOID_T);
+
+tal_system.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 6 : 
+*
+ * @copyright Copyright 2021-2031 Tuya Inc. All Rights Reserved.
+*
+*/
+#ifndef __TAL_SYSTEM_H__
+tal_system.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 12 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tal_system.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_system\include) line 113 : 
+*/
+TUYA_RESET_REASON_E tal_system_get_reset_reason(CHAR_T** describe);
+
+
+/**
+tal_time_sync.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_TIME_SYNC_H__
+tal_time_sync.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+
+/**
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 6 : 
+*
+* @copyright Copyright 2021-2025 Tuya Inc. All Rights Reserved.
+*
+*/
+
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 13 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+    extern "C" {
+{anonTAL_UART_CFG_T} in tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) : 
+    UINT8_T open_mode;
+    TUYA_UART_BASE_CFG_T base_cfg;
+} TAL_UART_CFG_T;
+
+/**
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 44 : 
+*                         high 16 bits aslo means uart type, 
+*                                   it's value must be one of the TUYA_UART_TYPE_E type
+*                         the low 16bit - means uart port id
+*                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+* @param[in] cfg: uart configure
+*
+* @note This API is used to init uart.
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 53 : 
+*/
+OPERATE_RET tal_uart_init(TUYA_UART_NUM_E port_id, TAL_UART_CFG_T *cfg);
+
+/**
+* @brief read data from uart
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 61 : 
+*                         high 16 bits aslo means uart type, 
+*                                   it's value must be one of the TUYA_UART_TYPE_E type
+*                         the low 16bit - means uart port id
+*                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+* @param[in] data: read data buffer
+* @param[in] len: the read size
+*
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 71 : 
+*/
+INT_T tal_uart_read(TUYA_UART_NUM_E port_id, UINT8_T *data, UINT32_T len);
+
+
+/**
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 80 : 
+*                         high 16 bits aslo means uart type, 
+*                                   it's value must be one of the TUYA_UART_TYPE_E type
+*                         the low 16bit - means uart port id
+*                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+* @param[in] data: send data buffer
+* @param[in] len: the send size
+*
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 90 : 
+*/
+INT_T tal_uart_write(TUYA_UART_NUM_E port_id, CONST UINT8_T *data, UINT32_T len);
+
+
+/**
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 99 : 
+*                         high 16 bits aslo means uart type, 
+*                                   it's value must be one of the TUYA_UART_TYPE_E type
+*                         the low 16bit - means uart port id
+*                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+*
+* @note This API is used to deinit uart.
+*
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 107 : 
+*/
+OPERATE_RET tal_uart_deinit(TUYA_UART_NUM_E port_id);
+
+
+/**
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 116 : 
+*                         high 16 bits aslo means uart type, 
+*                                   it's value must be one of the TUYA_UART_TYPE_E type
+*                         the low 16bit - means uart port id
+*                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+ * @param[out] buff: data receive buff
+ * @param[in] len: receive length
+ *
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 124 : 
+ */
+typedef VOID_T (*TAL_UART_IRQ_CB)(TUYA_UART_NUM_E port_id, VOID_T *buff, UINT16_T len);
+
+/**
+ * @brief enable uart rx interrupt and register interrupt callback func
+tal_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 132 : 
+*                         high 16 bits aslo means uart type, 
+*                                   it's value must be one of the TUYA_UART_TYPE_E type
+*                         the low 16bit - means uart port id
+*                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+ * @param[in] rx_cb: receive interrupt callback
+ *
+ * @return none
+ */
+VOID_T tal_uart_rx_reg_irq_cb(TUYA_UART_NUM_E port_id, TAL_UART_IRQ_CB rx_cb);
+
+
+#ifdef __cplusplus
+tal_watchdog.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 6 : 
+*
+* @copyright Copyright 2021-2025 Tuya Inc. All Rights Reserved.
+*
+*/
+#ifndef __TAL_WATCHDOG_H__
+tal_watchdog.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 12 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tal_watchdog.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 26 : 
+ */
+UINT32_T tal_watchdog_start(TUYA_WDOG_BASE_CFG_T *cfg);
+
+
+/**
+tal_watchdog.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 34 : 
+ * 
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_watchdog_stop(VOID_T);
+
+tal_watchdog.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_driver\include) line 44 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_watchdog_refresh(VOID_T);
+
+tal_zcl_group.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_ZCL_GROUP_H__
+tal_zcl_group.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+/**
+ * @brief find group on endpoint
+tal_zcl_identify.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_ZCL_IDENTIFY_H__
+tal_zcl_identify.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+
+/**
+tal_zcl_identify.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 25 : 
+ * @param[in]   none
+ * @return  OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_zg_identify_init(VOID_T);
+
+tal_zcl_scene.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_ZCL_SCENE_H__
+tal_zcl_scene.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+/*
+ *  scene data type
+tal_zll_commissioning.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2018-2021 Tuya Inc. All Rights Reserved.
+ *
+ */
+#ifndef __TAL_ZLL_COMMISSIONING_H__
+tal_zll_commissioning.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 17 : 
+
+#include "tuya_cloud_types.h"
+#include "tuya_zigbee_stack.h"
+
+
+/*
+tal_zll_commissioning.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 101 : 
+ * @param[in]   none
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_zll_target_touchlink_init(VOID_T);
+
+tal_zll_commissioning.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\components\tal_zigbee\include) line 173 : 
+ * @param[in]   none
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tal_zll_initiator_touchlink_init(VOID_T);
+
+tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 2 : 
+ * @file tkl_adc.c
+ * @brief This is tuya tkl adc src file
+ * @version 1.0
+ * @date 2021-09-10
+ *
+ * @copyright Copyright 2021-2022 Tuya Inc. All Rights Reserved.
+ *
+ */
+#include "em_cmu.h"
+{anon__ADC0_MGR_T} in tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) : 
+    UINT8_T width;
+    TUYA_ADC_TYPE_E type;
+} __ADC0_MGR_T;
+
+STATIC __ADC0_MGR_T sg_adc0_mgr_tbl[ADC_PORT_MAX_CHANNEL];
+tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 68 : 
+
+STATIC UINT32_T __get_adc_gpio_from_port(TUYA_ADC_NUM_E port_num, UINT8_T ch_id) 
+{
+    return sg_adc_map[ch_id].gpio_id;
+}
+
+STATIC VOID_T __adc_base_init(TUYA_ADC_NUM_E port_num, __ADC0_MGR_T* cfg)
+{
+    IADC_Init_t v_init = IADC_INIT_DEFAULT;
+    IADC_AllConfigs_t v_allconfig = IADC_ALLCONFIGS_DEFAULT;
+__adc_base_init in tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) : 
+    CMU_ClockEnable(cmuClock_IADC0, true);
+    if (cfg->type == TUYA_ADC_INNER_SAMPLE_VOL) {
+        v_singleinput.posInput = iadcPosInputAvdd; //iadcPosInputAvdd;
+        v_singleinput.negInput = iadcNegInputGnd;
+    }
+tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 121 : 
+
+OPERATE_RET tkl_adc_mapping_to_gpio(TUYA_ADC_NUM_E port_num, UINT8_T ch_id, UINT32_T gpio_id)
+{
+    if (port_num >= ADC_MAX_PORT || ch_id >= ADC_PORT_MAX_CHANNEL) {
+        return OPRT_INVALID_PARM;
+tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 130 : 
+
+OPERATE_RET tkl_adc_init(TUYA_ADC_NUM_E port_num, TUYA_ADC_BASE_CFG_T *cfg)
+{
+    UINT8_T i = 0;
+    UINT8_T ch_index = 0;
+tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 162 : 
+
+VOID_T __adc_external_sample_gpio_deinit(TUYA_ADC_NUM_E port_num, UINT8_T ch_id)
+{
+    UINT8_T v_port, v_pin;
+    UINT32_T gpio_id = __get_adc_gpio_from_port(port_num, ch_id);
+tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 182 : 
+
+OPERATE_RET tkl_adc_deinit(TUYA_ADC_NUM_E port_num)
+{
+    UINT8_T i;
+    if (port_num >= ADC_MAX_PORT) {
+tkl_adc_deinit in tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) : 
+        }
+        if (sg_adc0_mgr_tbl[i].type == TUYA_ADC_EXTERNAL_SAMPLE_VOL){
+            __adc_external_sample_gpio_deinit(port_num, sg_adc0_mgr_tbl[i].ch_id);
+        }
+        sg_adc0_mgr_tbl[i].is_init = 0;
+tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 205 : 
+
+OPERATE_RET tkl_adc_read_data(TUYA_ADC_NUM_E port_num, INT32_T *buff, UINT16_T len)
+{
+    return OPRT_NOT_SUPPORTED;
+}
+
+OPERATE_RET tkl_adc_read_single_channel(TUYA_ADC_NUM_E port_num, UINT8_T ch_id, INT32_T *data)
+{
+    if (data == NULL || 
+        port_num >= ADC_MAX_PORT || 
+tkl_adc_read_single_channel in tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) : 
+    
+    if(sg_adc0_mgr_tbl[ch_id].type == TUYA_ADC_INNER_SAMPLE_VOL) {
+        *data = (INT32_T)(v_result.data*4);
+    }
+    else {
+tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 251 : 
+
+UINT8_T tkl_adc_width_get(TUYA_ADC_NUM_E port_num)
+{
+    return ADC_WIDTH_DEFAULT;
+}
+tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 257 : 
+
+UINT32_T tkl_adc_ref_voltage_get(TUYA_ADC_NUM_E port_num)
+{
+    return 1210;
+}
+tkl_adc.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 268 : 
+
+OPERATE_RET tkl_adc_read_voltage(TUYA_ADC_NUM_E port_num, INT32_T *buff, UINT16_T len)
+{
+    // tkl_adc_read_single_channel(port_num, ch_id, &reg_data);
+    // tkl_adc_ref_voltage_get()*reg_data / 4095;
+tkl_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\adc\include) line 6 : 
+ *
+ * @copyright Copyright 2021-2022 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tkl_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\adc\include) line 13 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tkl_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\adc\include) line 21 : 
+/**
+ * @brief tuya kernel adc init
+ *
+ * @param[in] port_num: adc port number
+ * @param[in] cfg: adc config
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_adc_init(TUYA_ADC_NUM_E port_num, TUYA_ADC_BASE_CFG_T *cfg);
+
+/**
+ * @brief adc deinit
+tkl_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\adc\include) line 36 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_adc_deinit(TUYA_ADC_NUM_E port_num);
+
+
+/**
+tkl_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\adc\include) line 49 : 
+ */
+UINT8_T tkl_adc_width_get(TUYA_ADC_NUM_E port_num);
+
+/**
+ * @brief get adc reference voltage
+tkl_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\adc\include) line 59 : 
+ */
+UINT32_T tkl_adc_ref_voltage_get(TUYA_ADC_NUM_E port_num);
+
+/**
+ * @brief adc get temperature
+tkl_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\adc\include) line 75 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_adc_read_data(TUYA_ADC_NUM_E port_num, INT32_T *buff, UINT16_T len);
+
+/**
+ * @brief read single channel
+tkl_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\adc\include) line 86 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ *
+ */
+OPERATE_RET tkl_adc_read_single_channel(TUYA_ADC_NUM_E port_num, UINT8_T ch_id, INT32_T *data);
+
+/**
+ * @brief read voltage
+tkl_adc.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\adc\include) line 97 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ *
+ */
+
+OPERATE_RET tkl_adc_read_voltage(TUYA_ADC_NUM_E port_num, INT32_T *buff, UINT16_T len);
+
+#ifdef __cplusplus
+}
+tkl_endpoint_register.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2021-2022 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tkl_endpoint_register.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 18 : 
+
+#include "tuya_zigbee_stack.h"
+#include "tuya_cloud_types.h"
+
+/* 
+ * attribute instantiation structure 
+tkl_endpoint_register.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 110 : 
+/**
+ * @brief [TUYA_WEAK_ATTRIBUTE function],set device version according to ep_id
+ * 
+ * @param[in] ep_id 
+ * @return TKL_DEV_VER_T 
+tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 2 : 
+ * @file tkl_gpio.c
+ * @brief This is tuya tkl gpio src file
+ * @version 1.0
+ * @date 2021-09-10
+ *
+ * @copyright Copyright 2021-2022 Tuya Inc. All Rights Reserved.
+ *
+ */
+#include "em_cmu.h"
+{anon__GPIO_INIT_T} in tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) : 
+    GPIO_MODE_T mode;
+    TUYA_GPIO_LEVEL_E level;
+    IRQ_MODE irq_mode;
+} __GPIO_INIT_T;
+
+{anon__TKL_GPIO_PRAVATE_IRQ_T} in tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) : 
+    VOID* irq_arg;
+    TUYA_GPIO_IRQ_CB irq_cb;
+} __TKL_GPIO_PRAVATE_IRQ_T;
+
+BOOL_T disable_special_gpio = FALSE;
+tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 172 : 
+STATIC VOID __gpio_mode_convert(__GPIO_INIT_T* gpio_init,
+                                TUYA_GPIO_MODE_E mode,
+                                TUYA_GPIO_DRCT_E dir,
+                                TUYA_GPIO_LEVEL_E level)
+{
+    gpio_init->level = level;
+	
+	if (dir == TUYA_GPIO_INPUT) {
+        if (mode == TUYA_GPIO_PULLUP) {
+            gpio_init->mode = gpioModeInputPull;
+            gpio_init->level = TUYA_GPIO_LEVEL_HIGH;
+        } else if (mode == TUYA_GPIO_PULLDOWN) {
+            gpio_init->mode = gpioModeInputPull;
+            gpio_init->level = TUYA_GPIO_LEVEL_LOW;
+        } else if (mode == TUYA_GPIO_FLOATING ||
+                   mode == TUYA_GPIO_HIGH_IMPEDANCE) {
+            gpio_init->mode = gpioModeInput;
+        }
+    } else {
+        if (mode == TUYA_GPIO_PUSH_PULL) {
+            gpio_init->mode = gpioModePushPull;
+        } else if (mode == TUYA_GPIO_OPENDRAIN) {
+            gpio_init->mode = gpioModeWiredAnd;
+        } else if (mode == TUYA_GPIO_OPENDRAIN_PULLUP) {
+            gpio_init->mode = gpioModeWiredAndPullUp;
+			gpio_init->level = TUYA_GPIO_LEVEL_HIGH;
+        }
+    }
+}
+tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 274 : 
+
+STATIC VOID __gpio_irq_type_convert(__GPIO_INIT_T* gpio_init, TUYA_GPIO_IRQ_E trig_type)
+{
+    if (trig_type == TUYA_GPIO_IRQ_FALL || trig_type == TUYA_GPIO_IRQ_LOW) {
+        gpio_init->mode = gpioModeInputPull;
+        gpio_init->level = TUYA_GPIO_LEVEL_HIGH;
+        gpio_init->irq_mode = FALLING_EDGE;
+    } else if (trig_type == TUYA_GPIO_IRQ_RISE || trig_type == TUYA_GPIO_IRQ_HIGH) {
+        gpio_init->mode = gpioModeInputPull;
+        gpio_init->level = TUYA_GPIO_LEVEL_LOW;
+        gpio_init->irq_mode = RISING_EDGE;
+    } else if (trig_type == TUYA_GPIO_IRQ_RISE_FALL) {
+        gpio_init->mode = gpioModeInput;
+        gpio_init->irq_mode = BOTH_EDGE;
+    }
+tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 365 : 
+
+OPERATE_RET tkl_gpio_deinit(TUYA_GPIO_NUM_E pin_id)
+{
+    __GPIO_INIT_T v_gpio_init;
+    
+tkl_gpio_deinit in tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) : 
+    v_gpio_init.mode = gpioModeDisabled;
+    v_gpio_init.level = TUYA_GPIO_LEVEL_LOW;
+
+    __gpio_base_init(&v_gpio_init);
+
+tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 385 : 
+
+OPERATE_RET tkl_gpio_init(TUYA_GPIO_NUM_E pin_id, CONST TUYA_GPIO_BASE_CFG_T *cfg)
+{
+    __GPIO_INIT_T v_gpio_init;
+
+tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 404 : 
+
+OPERATE_RET tkl_gpio_read(TUYA_GPIO_NUM_E pin_id, TUYA_GPIO_LEVEL_E *level)
+{
+    UINT8_T port_num, pin_num;
+    GPIO_MODE_T gpio_mode;
+tkl_gpio_read in tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) : 
+    if (gpio_mode > gpioModeDisabled && gpio_mode <= gpioModeInputPullFilter) {
+        *level = (TUYA_GPIO_LEVEL_E)GPIO_PinInGet((PORT_T)port_num, (UINT32_T)pin_num);
+    } else if (gpio_mode >= gpioModePushPull) {
+        *level = (TUYA_GPIO_LEVEL_E)GPIO_PinOutGet((PORT_T)port_num, (UINT32_T)pin_num);
+    }
+
+    return OPRT_OK;
+tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 428 : 
+
+OPERATE_RET tkl_gpio_write(TUYA_GPIO_NUM_E pin_id, TUYA_GPIO_LEVEL_E level)
+{
+    UINT8_T port_num, pin_num;
+    
+tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 449 : 
+
+OPERATE_RET tkl_gpio_irq_init(TUYA_GPIO_NUM_E pin_id, CONST TUYA_GPIO_IRQ_T *cfg)
+{
+    UINT8_T i;
+    __GPIO_INIT_T gpio_init;
+tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 507 : 
+
+OPERATE_RET tkl_gpio_irq_enable(TUYA_GPIO_NUM_E pin_id)
+{
+    if(pin_id >= SUPPORT_MAX_PIN) {
+        return OPRT_INVALID_PARM;
+tkl_gpio.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 516 : 
+
+OPERATE_RET tkl_gpio_irq_disable(TUYA_GPIO_NUM_E pin_id)
+{
+    if(pin_id >= SUPPORT_MAX_PIN) {
+        return OPRT_INVALID_PARM;
+tkl_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\gpio\include) line 6 : 
+ *
+ * @copyright Copyright 2021-2022 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tkl_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\gpio\include) line 13 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tkl_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\gpio\include) line 25 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_gpio_init(TUYA_GPIO_NUM_E pin_id, CONST TUYA_GPIO_BASE_CFG_T *cfg);
+
+/**
+ * @brief gpio deinit
+tkl_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\gpio\include) line 33 : 
+ * @param[in] pin_id: gpio pin id, id index starts at 0
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_gpio_deinit(TUYA_GPIO_NUM_E pin_id);
+
+/**
+ * @brief gpio write
+tkl_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\gpio\include) line 43 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_gpio_write(TUYA_GPIO_NUM_E pin_id, TUYA_GPIO_LEVEL_E level);
+
+/**
+ * @brief gpio read
+tkl_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\gpio\include) line 53 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_gpio_read(TUYA_GPIO_NUM_E pin_id, TUYA_GPIO_LEVEL_E *level);
+
+/**
+ * @brief gpio irq init
+tkl_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\gpio\include) line 64 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_gpio_irq_init(TUYA_GPIO_NUM_E pin_id, CONST TUYA_GPIO_IRQ_T *cfg);
+
+/**
+ * @brief gpio irq enable
+tkl_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\gpio\include) line 73 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_gpio_irq_enable(TUYA_GPIO_NUM_E pin_id);
+
+/**
+ * @brief gpio irq disable
+tkl_gpio.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\gpio\include) line 82 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_gpio_irq_disable(TUYA_GPIO_NUM_E pin_id);
+
+
+#ifdef __cplusplus
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 6 : 
+*
+* @copyright Copyright 2020-2021 Tuya Inc. All Rights Reserved.
+*
+*/
+#ifndef __TKL_I2C_H__
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 12 : 
+
+#include "tuya_cloud_types.h"
+
+#include "tkl_gpio.h"
+
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 28 : 
+ */
+OPERATE_RET tkl_i2c_init(TUYA_I2C_NUM_E port, CONST TUYA_IIC_BASE_CFG_T *cfg);
+
+/**
+ * @brief i2c deinit
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 37 : 
+ */
+OPERATE_RET tkl_i2c_deinit(TUYA_I2C_NUM_E port);
+
+/**
+ * @brief i2c irq init
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 46 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_i2c_irq_init(TUYA_I2C_NUM_E port, CONST TUYA_I2C_IRQ_CB *cb);
+
+/**
+ * @brief i2c irq enable
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 55 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_i2c_irq_enable(TUYA_I2C_NUM_E port);
+
+/**
+ * @brief i2c irq disable
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 64 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_i2c_irq_disable(TUYA_I2C_NUM_E port);
+
+/**
+ * @brief i2c master send
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 78 : 
+ */
+OPERATE_RET tkl_i2c_master_send(TUYA_I2C_NUM_E port, UINT16_T dev_addr, CONST VOID_T *data, UINT32_T size, BOOL_T xfer_pending);
+
+/**
+ * @brief i2c master recv
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 90 : 
+ */
+OPERATE_RET tkl_i2c_master_receive(TUYA_I2C_NUM_E port, UINT16_T dev_addr, VOID *data, UINT32_T size, BOOL_T xfer_pending);
+
+/**
+ * @brief i2c slave
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 100 : 
+ */
+OPERATE_RET tkl_i2c_set_slave_addr(TUYA_I2C_NUM_E port, UINT16_T dev_addr);
+
+/**
+ * @brief i2c slave send
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 111 : 
+
+OPERATE_RET tkl_i2c_slave_send(TUYA_I2C_NUM_E port, CONST VOID *data, UINT32_T size);
+
+/**
+ * @brief IIC slave receive, Start receiving data as IIC Slave.
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 122 : 
+
+OPERATE_RET tkl_i2c_slave_receive(TUYA_I2C_NUM_E port, VOID *data, UINT32_T size);
+
+/**
+ * @brief IIC get status.
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 128 : 
+ * @param[in] port: i2c port
+ * @return TUYA_IIC_STATUS_T,please refer to tuya_cloud_types.h
+ */
+TUYA_IIC_STATUS_T tkl_i2c_get_status(TUYA_I2C_NUM_E port);
+
+/**
+ * @brief i2c's reset
+tkl_i2c.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\i2c\include) line 137 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET  tkl_i2c_reset(TUYA_I2C_NUM_E port);
+
+#ifdef __cplusplus
+}
+tkl_memory.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\system\include) line 6 : 
+*
+* @copyright Copyright 2021-2030 Tuya Inc. All Rights Reserved.
+*
+*/
+#ifndef __TKL_MEMORY_H__
+tkl_memory.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\system\include) line 12 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tkl_network_manager.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 6 : 
+ *
+ * @copyright Copyright 2021-2022 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tkl_network_manager.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 18 : 
+
+#include "tuya_zigbee_stack.h"
+#include "tuya_cloud_types.h"
+
+/*
+ * zigbee secret key type
+tkl_network_manager.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 181 : 
+ * @param[in]   change callback: network change to notify app user
+ * @return  OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_zg_nwk_state_change_register(TKL_ZGAL_NWK_CHANGE_CB nwk_change_cb);
+
+tkl_network_manager.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 198 : 
+ * @param[in]   type:   scan type
+ * @return  OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_zg_start_scan(TKL_SCAN_TYPE_E type);
+
+tkl_network_manager.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 206 : 
+ * @param[in]   type:   scan type
+ * @return  OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_zg_stop_scan(TKL_SCAN_TYPE_E type);
+
+tkl_network_manager.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 214 : 
+ * @param[in]   none
+ * @return  OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_zg_start_leave(VOID_T);
+
+tkl_network_manager.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 246 : 
+ * @param[in]   key_cb:    key callback
+ * @return  OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_zg_register_key_establish_cb(TKL_TCLINK_KEY_CB key_cb);
+
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 2 : 
+ * @file tkl_pwm.c
+ * @brief This is tuya tkl pwm src file
+ * @version 1.0
+ * @date 2021-09-10
+ *
+ * @copyright Copyright 2021-2022 Tuya Inc. All Rights Reserved.
+ *
+ */
+#include "em_cmu.h"
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 18 : 
+/* Main Features below:
+polarity=TUYA_PWM_POSITIVE && duty=0,output low level
+
+TUYA_PWM_POSITIVE: duty corresponds to high level
+TUYA_PWM_NEGATIVE: duty corresponds to low level
+*/
+/******************************************************************************/
+/**                  internal macro definition following                     **/
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 65 : 
+typedef struct {
+  TUYA_PWM_BASE_CFG_T cfg;
+  UINT_T precision;  // (duty max)
+  UINT8_T idle_level;
+  UINT32_T tick_per_period;
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 296 : 
+
+OPERATE_RET tkl_pwm_init(TUYA_PWM_NUM_E ch_id, CONST TUYA_PWM_BASE_CFG_T *cfg)
+{
+  // UINT32_T v_ticksPerPeriod32=0;
+  if (ch_id >= PWM_MAX_CHANNEL || NULL == cfg || cfg->frequency==0) {
+tkl_pwm_init in tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) : 
+  sg_pwm_cfg_tbl.pwm_info[ch_id].tick_per_period = sg_ticksPerPeriod;
+  tkl_system_memcpy(&sg_pwm_cfg_tbl.pwm_info[ch_id].cfg, cfg, sizeof(TUYA_PWM_BASE_CFG_T));
+  
+  TIMER_InitCC_TypeDef timerCCInit = {
+    .eventCtrl = timerEventEveryEdge,
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 415 : 
+
+OPERATE_RET tkl_pwm_deinit(TUYA_PWM_NUM_E ch_id)
+{
+  if (ch_id >= PWM_MAX_CHANNEL) {
+    return OPRT_INVALID_PARM;
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 472 : 
+
+OPERATE_RET tkl_pwm_start(TUYA_PWM_NUM_E ch_id)
+{
+  if (ch_id >= PWM_MAX_CHANNEL) {
+    return OPRT_INVALID_PARM;
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 521 : 
+
+OPERATE_RET tkl_pwm_stop(TUYA_PWM_NUM_E ch_id)
+{
+  if (ch_id >= PWM_MAX_CHANNEL) {
+    return OPRT_INVALID_PARM;
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 545 : 
+
+OPERATE_RET tkl_pwm_duty_set(TUYA_PWM_NUM_E ch_id, UINT32_T duty)
+{
+  if (ch_id >= PWM_MAX_CHANNEL) {
+    return OPRT_INVALID_PARM;
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 583 : 
+*
+* @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+*/
+OPERATE_RET tkl_pwm_precision_set(TUYA_PWM_NUM_E ch_id, UINT32_T precision)
+{
+  if (ch_id >= PWM_MAX_CHANNEL || precision ==0) {
+    return OPRT_INVALID_PARM;
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 599 : 
+
+OPERATE_RET tkl_pwm_frequency_set(TUYA_PWM_NUM_E ch_id, UINT32_T frequency)
+{
+  if (ch_id >= PWM_MAX_CHANNEL ||  frequency==0) {
+    return OPRT_INVALID_PARM;
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 648 : 
+
+OPERATE_RET tkl_pwm_polarity_set(TUYA_PWM_NUM_E ch_id, TUYA_PWM_POLARITY_E polarity)
+{
+  if (ch_id >= PWM_MAX_CHANNEL) {
+    return OPRT_INVALID_PARM;
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 689 : 
+
+OPERATE_RET tkl_pwm_idle_level_set(TUYA_PWM_NUM_E ch_id, UINT8_T idle_level)
+{
+  if (ch_id >= PWM_MAX_CHANNEL) {
+    return OPRT_INVALID_PARM;
+tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) line 700 : 
+
+OPERATE_RET tkl_pwm_info_set(TUYA_PWM_NUM_E ch_id, CONST TUYA_PWM_BASE_CFG_T *info)
+{
+  if (ch_id >= PWM_MAX_CHANNEL || NULL == info || info->frequency==0) {
+    return OPRT_INVALID_PARM;
+tkl_pwm_info_set in tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) : 
+  }
+  tkl_system_memcpy(&sg_pwm_cfg_tbl.pwm_info[ch_id].cfg, info, sizeof(TUYA_PWM_BASE_CFG_T));
+  
+  return OPRT_OK;
+}
+
+OPERATE_RET tkl_pwm_info_get(TUYA_PWM_NUM_E ch_id, TUYA_PWM_BASE_CFG_T *info)
+{
+  if (ch_id >= PWM_MAX_CHANNEL || NULL == info) {
+    return OPRT_INVALID_PARM;
+tkl_pwm_info_get in tkl_pwm.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\vendor\efr32_zigbee\tuyaos\drivers) : 
+  
+  tkl_system_memcpy(info, &sg_pwm_cfg_tbl.pwm_info[ch_id].cfg, sizeof(TUYA_PWM_BASE_CFG_T));
+  
+  return OPRT_OK;
+}
+tkl_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\pwm\include) line 6 : 
+ *
+ * @copyright Copyright 2021-2022 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+tkl_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\pwm\include) line 18 : 
+
+#include "tuya_cloud_types.h"
+
+/**
+ * @brief pwm init
+tkl_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\pwm\include) line 26 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_pwm_init(TUYA_PWM_NUM_E ch_id, CONST TUYA_PWM_BASE_CFG_T *cfg);
+
+/**
+ * @brief pwm deinit
+tkl_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\pwm\include) line 35 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_pwm_deinit(TUYA_PWM_NUM_E ch_id);
+
+/**
+ * @brief pwm start
+tkl_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\pwm\include) line 44 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_pwm_start(TUYA_PWM_NUM_E ch_id);
+
+/**
+ * @brief pwm stop
+tkl_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\pwm\include) line 53 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_pwm_stop(TUYA_PWM_NUM_E ch_id);
+
+/**
+ * @brief pwm duty set
+tkl_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\pwm\include) line 63 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_pwm_duty_set(TUYA_PWM_NUM_E ch_id, UINT32_T duty);
+
+/**
+ * @brief pwm frequency set
+tkl_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\pwm\include) line 73 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_pwm_frequency_set(TUYA_PWM_NUM_E ch_id, UINT32_T frequency);
+
+/**
+ * @brief pwm polarity set
+tkl_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\pwm\include) line 83 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_pwm_polarity_set(TUYA_PWM_NUM_E ch_id, TUYA_PWM_POLARITY_E polarity);
+
+/**
+ * @brief set pwm info
+tkl_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\pwm\include) line 93 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_pwm_info_set(TUYA_PWM_NUM_E ch_id, CONST TUYA_PWM_BASE_CFG_T *info);
+
+/**
+ * @brief get pwm info
+tkl_pwm.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\pwm\include) line 103 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_pwm_info_get(TUYA_PWM_NUM_E ch_id, TUYA_PWM_BASE_CFG_T *info);
+
+
+#ifdef __cplusplus
+tkl_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\spi\include) line 6 : 
+*
+* @copyright Copyright 2021-2030 Tuya Inc. All Rights Reserved.
+*
+*/
+#ifndef __TKL_SPI_H__
+tkl_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\spi\include) line 12 : 
+
+#include "tuya_cloud_types.h"
+#include "tkl_gpio.h"
+
+#ifdef __cplusplus
+tkl_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\spi\include) line 25 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_spi_init(TUYA_SPI_NUM_E port, CONST TUYA_SPI_BASE_CFG_T *cfg);
+
+/**
+ * @brief spi deinit
+tkl_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\spi\include) line 34 : 
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_spi_deinit(TUYA_SPI_NUM_E port);
+
+/**
+ * Spi send
+tkl_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\spi\include) line 45 : 
+ *
+ * @return  OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_spi_send(TUYA_SPI_NUM_E port, VOID_T *data, UINT16_T size);
+
+/**
+ * spi_recv
+tkl_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\spi\include) line 56 : 
+ *
+ * @return  OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_spi_recv(TUYA_SPI_NUM_E port, VOID_T *data, UINT16_T size);
+
+/**
+ * @brief spi transfer
+tkl_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\spi\include) line 68 : 
+ * 
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_spi_transfer(TUYA_SPI_NUM_E port, VOID_T* send_buf, VOID_T* receive_buf, UINT32_T length);
+
+/**
+ * @brief adort spi transfer
+tkl_spi.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\spi\include) line 77 : 
+ * 
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+
+OPERATE_RET tkl_spi_abort_transfer(TUYA_SPI_NUM_E port);
+
+
+#ifdef __cplusplus
+tkl_system.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\system\include) line 6 : 
+*
+* @copyright Copyright 2021-2030 Tuya Inc. All Rights Reserved.
+*
+*/
+#ifndef __TKL_SYSTEM_H__
+tkl_system.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\system\include) line 12 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tkl_system.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\system\include) line 92 : 
+*/
+TUYA_RESET_REASON_E tkl_system_get_reset_reason(CHAR_T** describe);
+
+/**
+* @brief  system sleep
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 6 : 
+*
+* @copyright Copyright 2021-2022 Tuya Inc. All Rights Reserved.
+*
+*/
+#ifndef __TKL_UART_H__
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 12 : 
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+extern "C" {
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 25 : 
+ *                         high 16 bits aslo means uart type, 
+ *                                   it's value must be one of the TUYA_UART_TYPE_E type
+ *                         the low 16bit - means uart port id
+ *                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+ * @param[in] cfg: uart config
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_uart_init(TUYA_UART_NUM_E port_id, TUYA_UART_BASE_CFG_T *cfg);
+
+/**
+ * @brief uart deinit
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 40 : 
+ *                         high 16 bits aslo means uart type, 
+ *                                   it's value must be one of the TUYA_UART_TYPE_E type
+ *                         the low 16bit - means uart port id
+ *                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_uart_deinit(TUYA_UART_NUM_E port_id);
+
+/**
+ * @brief uart write data
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 53 : 
+ *                         high 16 bits aslo means uart type, 
+ *                                   it's value must be one of the TUYA_UART_TYPE_E type
+ *                         the low 16bit - means uart port id
+ *                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+ * @param[in] data: write buff
+ * @param[in] len:  buff len
+ *
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 61 : 
+ */
+INT_T tkl_uart_write(TUYA_UART_NUM_E port_id, VOID_T *buff, UINT16_T len);
+
+/**
+ * @brief enable uart rx interrupt and regist interrupt callback
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 69 : 
+ *                         high 16 bits aslo means uart type, 
+ *                                   it's value must be one of the TUYA_UART_TYPE_E type
+ *                         the low 16bit - means uart port id
+ *                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+ * @param[in] rx_cb: receive callback
+ *
+ * @return none
+ */
+VOID_T tkl_uart_rx_irq_cb_reg(TUYA_UART_NUM_E port_id, TUYA_UART_IRQ_CB rx_cb);
+
+/**
+ * @brief regist uart tx interrupt callback
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 86 : 
+ *                         high 16 bits aslo means uart type, 
+ *                                   it's value must be one of the TUYA_UART_TYPE_E type
+ *                         the low 16bit - means uart port id
+ *                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+ * @param[in] rx_cb: receive callback
+ *
+ * @return none
+ */
+VOID_T tkl_uart_tx_irq_cb_reg(TUYA_UART_NUM_E port_id, TUYA_UART_IRQ_CB tx_cb);
+
+/**
+ * @brief uart read data
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 101 : 
+ *                         high 16 bits aslo means uart type, 
+ *                                   it's value must be one of the TUYA_UART_TYPE_E type
+ *                         the low 16bit - means uart port id
+ *                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+ * @param[out] data: read data
+ * @param[in] len:  buff len
+ * 
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 109 : 
+ */
+INT_T tkl_uart_read(TUYA_UART_NUM_E port_id, VOID_T *buff, UINT16_T len);
+
+/**
+ * @brief set uart transmit interrupt status
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 117 : 
+ *                         high 16 bits aslo means uart type, 
+ *                                   it's value must be one of the TUYA_UART_TYPE_E type
+ *                         the low 16bit - means uart port id
+ *                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+ * @param[in] enable: TRUE-enalbe tx int, FALSE-disable tx int
+ * 
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_uart_set_tx_int(TUYA_UART_NUM_E port_id, BOOL_T enable);
+
+/**
+ * @brief set uart receive flowcontrol
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 132 : 
+ *                         high 16 bits aslo means uart type, 
+ *                                   it's value must be one of the TUYA_UART_TYPE_E type
+ *                         the low 16bit - means uart port id
+ *                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+ * @param[in] enable: TRUE-enalbe rx flowcontrol, FALSE-disable rx flowcontrol
+ * 
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_uart_set_rx_flowctrl(TUYA_UART_NUM_E port_id, BOOL_T enable);
+
+/**
+ * @brief wait for uart data
+tkl_uart.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\uart\include) line 147 : 
+ *                         high 16 bits aslo means uart type, 
+ *                                   it's value must be one of the TUYA_UART_TYPE_E type
+ *                         the low 16bit - means uart port id
+ *                         you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+ * @param[in] timeout_ms: the max wait time, unit is millisecond
+ *                        -1 : block indefinitely
+ *                        0  : non-block
+ *                        >0 : timeout in milliseconds
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_uart_wait_for_data(TUYA_UART_NUM_E port_id, INT_T timeout_ms);
+
+/**
+ * @brief uart control
+ *
+ * @param[in] uart refer to tuya_uart_t
+ * @param[in] cmd control command
+ * @param[in] arg command argument
+ *
+ * @return OPRT_OK on success. Others on error, please refer to tuya_error_code.h
+ */
+OPERATE_RET tkl_uart_ioctl(TUYA_UART_NUM_E port_id, UINT32_T cmd, VOID *arg);
+
+#ifdef __cplusplus
+}
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1 : 
+/*
+tuya_cloud_types.h
+Copyright(C),2018-2020, 涂鸦科技 www.tuya.comm
+*/
+
+#ifndef TUYA_CLOUD_TYPES_H
+#define TUYA_CLOUD_TYPES_H
+
+#include "tuya_iot_config.h"
+#include <stdarg.h>
+
+#if OPERATING_SYSTEM == SYSTEM_LINUX
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 19 : 
+#include <string.h>
+#include "tuya_error_code.h"
+
+
+#ifdef __cplusplus
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 212 : 
+typedef enum {
+    TUYA_IO_BITS_0,
+    TUYA_IO_BITS_1,
+    TUYA_IO_BITS_2,
+    TUYA_IO_BITS_3,
+    TUYA_IO_BITS_4,
+    TUYA_IO_BITS_5,
+    TUYA_IO_BITS_6,
+    TUYA_IO_BITS_7,
+    TUYA_IO_BITS_8,
+    TUYA_IO_BITS_9,
+    TUYA_IO_BITS_10,
+    TUYA_IO_BITS_11,
+    TUYA_IO_BITS_12,
+    TUYA_IO_BITS_13,
+    TUYA_IO_BITS_14,
+    TUYA_IO_BITS_15,
+    TUYA_IO_BITS_16,
+    TUYA_IO_BITS_17,
+    TUYA_IO_BITS_18,
+    TUYA_IO_BITS_19,
+    TUYA_IO_BITS_20,
+    TUYA_IO_BITS_21,
+    TUYA_IO_BITS_22,
+    TUYA_IO_BITS_23,
+    TUYA_IO_BITS_24,
+    TUYA_IO_BITS_25,
+    TUYA_IO_BITS_26,
+    TUYA_IO_BITS_27,
+    TUYA_IO_BITS_28,
+    TUYA_IO_BITS_29,
+    TUYA_IO_BITS_30,
+    TUYA_IO_BITS_31,
+}TUYA_ADDR_BITS_DEF_E;
+
+/**
+ * @brief adc sample type
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 250 : 
+typedef enum {
+    TUYA_ADC_NUM_0 = 0,          // ADC 0
+    TUYA_ADC_NUM_1 = 1,          // ADC 1
+    TUYA_ADC_NUM_2 = 2,          // ADC 2
+    TUYA_ADC_NUM_3 = 3,          // ADC 3
+    TUYA_ADC_NUM_4 = 4,          // ADC 4
+    TUYA_ADC_NUM_5 = 5,          // ADC 5
+    TUYA_ADC_NUM_6 = 6,			// ADC 6
+    TUYA_ADC_NUM_MAX,
+} TUYA_ADC_NUM_E;
+typedef enum {
+    TUYA_ADC_INNER_SAMPLE_VOL = 0,
+    TUYA_ADC_EXTERNAL_SAMPLE_VOL
+} TUYA_ADC_TYPE_E;
+
+/**
+ * @brief adc mode
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 268 : 
+typedef enum {
+    TUYA_ADC_SINGLE = 0,       ///< Single conversion mode --- select one channel to convert at a time.
+    TUYA_ADC_CONTINUOUS,       ///< Continuous conversion mode --- select a channel to convert in a specific times.
+    TUYA_ADC_SCAN,             ///< Scan mode --- select a group channel to convert at a time.
+} TUYA_ADC_MODE_E;
+
+typedef struct {
+    UINT32_T ch_0             : 1;
+{anonTUYA_AD_DA_CH_LIST_BIT_T} in tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) : 
+    UINT32_T rsv              :16;
+}TUYA_AD_DA_CH_LIST_BIT_T;
+
+typedef union {
+    TUYA_AD_DA_CH_LIST_BIT_T bits;
+    UINT32_T data;
+}TUYA_AD_DA_CH_LIST_U;
+
+/**
+ * @brief adc config
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 302 : 
+typedef struct {
+    TUYA_AD_DA_CH_LIST_U  ch_list;       // adc channel list
+    UINT8_T ch_nums;        // adc channel number,specifies the number of channels in ch_list that will be converted
+    UINT8_T  width;         // sampling width
+    UINT32_T freq;          // sampling frequency
+    TUYA_ADC_TYPE_E type;   // sampling type
+    TUYA_ADC_MODE_E mode;   // sampling mode
+    UINT16_T   conv_cnt;    // sampling times
+    UINT32_T   ref_vol;     // reference voltage (bat: mv), if dont support set reference voltage, ignore it
+} TUYA_ADC_BASE_CFG_T;
+
+/**
+ * @brief dac num       //xbf
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 317 : 
+typedef enum {
+    TUYA_DAC_NUM_0 = 0,        // DAC 0
+    TUYA_DAC_NUM_1 = 1,        // DAC 1
+    TUYA_DAC_NUM_2 = 2,        // DAC 2
+    TUYA_DAC_NUM_3 = 3,        // DAC 3
+    TUYA_DAC_NUM_4 = 4,        // DAC 4
+    TUYA_DAC_NUM_5 = 5,        // DAC 5
+    TUYA_DAC_NUM_6 = 6,        // DAC 6
+    TUYA_DAC_NUM_MAX,
+} TUYA_DAC_NUM_E;
+/**
+ * @brief dac config       //xbf
+ */
+typedef struct {
+    TUYA_AD_DA_CH_LIST_U  ch_list;       // dac channel list
+    UINT8_T  ch_nums;       // dac channel number
+    UINT8_T  width;         // output width
+    UINT32_T freq;          // convert freq
+} TUYA_DAC_BASE_CFG_T;
+
+typedef struct{
+	UINT8_T *data;
+	UINT32_T len;
+}TUYA_DAC_DATA_T;
+
+typedef enum {
+    TUYA_DAC_WRITE_FIFO = 0,   /*设置DAC的FIIO的数据*/
+	TUYA_DAC_SET_BASE_CFG,     /*设置DAC的基本配置*/
+} TUYA_DAC_CMD_E;
+
+typedef struct{
+	TUYA_DAC_CMD_E cmd;
+	VOID * argu;
+}TUYA_DAC_CTL_CONFIG_T;
+
+/**
+ * @brief flash type
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 356 : 
+typedef enum {
+    TUYA_FLASH_TYPE_BTL0 = 0,
+    TUYA_FLASH_TYPE_BTL1,
+    TUYA_FLASH_TYPE_STACK,
+    TUYA_FLASH_TYPE_APP,
+    TUYA_FLASH_TYPE_OTA,
+    TUYA_FLASH_TYPE_USER0,
+    TUYA_FLASH_TYPE_USER1,
+    TUYA_FLASH_TYPE_KV_DATA,
+    TUYA_FLASH_TYPE_KV_SWAP,
+    TUYA_FLASH_TYPE_KV_KEY,
+    TUYA_FLASH_TYPE_UF,    
+    TUYA_FLASH_TYPE_INFO,
+    TUYA_FLASH_TYPE_KV_UF,
+    TUYA_FLASH_TYPE_KV_PROTECT,
+    TUYA_FLASH_TYPE_RCD,
+    TUYA_FLASH_TYPE_MAX,
+} TUYA_FLASH_TYPE_E;
+
+/**
+ * @brief flash partition information
+{anonTUYA_FLASH_PARTITION_T} in tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) : 
+    UINT_T size;
+} TUYA_FLASH_PARTITION_T;
+
+/**
+ * @brief flash type base information
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 388 : 
+ */
+#ifndef TUYA_FLASH_TYPE_MAX_PARTITION_NUM
+#define TUYA_FLASH_TYPE_MAX_PARTITION_NUM 10
+#endif
+
+typedef struct {
+    UINT_T partition_num;
+    TUYA_FLASH_PARTITION_T partition[TUYA_FLASH_TYPE_MAX_PARTITION_NUM];
+} TUYA_FLASH_BASE_INFO_T;
+
+/**
+ * @brief pinmux config
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 402 : 
+/**
+ * @brief tuya pinmux io name
+ */
+typedef UINT16_T TUYA_PIN_NAME_E;
+/**
+ * @brief tuya pinmux io name default define
+ */
+#define	 TUYA_IO_PIN_0	   0
+#define	 TUYA_IO_PIN_1	   1
+#define	 TUYA_IO_PIN_2	   2
+#define	 TUYA_IO_PIN_3	   3
+#define	 TUYA_IO_PIN_4	   4
+#define	 TUYA_IO_PIN_5	   5
+#define	 TUYA_IO_PIN_6	   6
+#define	 TUYA_IO_PIN_7	   7
+#define	 TUYA_IO_PIN_8	   8
+#define	 TUYA_IO_PIN_9	   9
+#define	 TUYA_IO_PIN_10	   10
+#define	 TUYA_IO_PIN_11	   11
+#define	 TUYA_IO_PIN_12	   12
+#define	 TUYA_IO_PIN_13	   13
+#define	 TUYA_IO_PIN_14	   14
+#define	 TUYA_IO_PIN_15	   15
+#define	 TUYA_IO_PIN_16	   16
+#define	 TUYA_IO_PIN_17	   17
+#define	 TUYA_IO_PIN_18	   18
+#define	 TUYA_IO_PIN_19	   19
+#define	 TUYA_IO_PIN_20	   20
+#define	 TUYA_IO_PIN_21	   21
+#define	 TUYA_IO_PIN_22	   22
+#define	 TUYA_IO_PIN_23	   23
+#define	 TUYA_IO_PIN_24	   24
+#define	 TUYA_IO_PIN_25	   25
+#define	 TUYA_IO_PIN_26	   26
+#define	 TUYA_IO_PIN_27	   27
+#define	 TUYA_IO_PIN_28	   28
+#define	 TUYA_IO_PIN_29	   29
+#define	 TUYA_IO_PIN_30	   30
+#define	 TUYA_IO_PIN_31	   31
+#define	 TUYA_IO_PIN_32	   32
+#define	 TUYA_IO_PIN_33	   33
+#define	 TUYA_IO_PIN_34	   34
+#define	 TUYA_IO_PIN_35	   35
+#define	 TUYA_IO_PIN_36	   36
+#define	 TUYA_IO_PIN_37	   37
+#define	 TUYA_IO_PIN_38	   38
+#define	 TUYA_IO_PIN_39	   39
+#define	 TUYA_IO_PIN_40	   40
+#define	 TUYA_IO_PIN_41	   41
+#define	 TUYA_IO_PIN_42	   42
+#define	 TUYA_IO_PIN_43	   43
+#define	 TUYA_IO_PIN_44	   44
+#define	 TUYA_IO_PIN_45	   45
+#define	 TUYA_IO_PIN_46	   46
+#define	 TUYA_IO_PIN_47	   47
+#define	 TUYA_IO_PIN_48	   48
+#define	 TUYA_IO_PIN_49	   49
+#define	 TUYA_IO_PIN_50	   50
+#define	 TUYA_IO_PIN_51	   51
+#define	 TUYA_IO_PIN_52	   52
+#define	 TUYA_IO_PIN_53	   53
+#define	 TUYA_IO_PIN_54	   54
+#define	 TUYA_IO_PIN_55	   55
+#define	 TUYA_IO_PIN_56	   56
+#define	 TUYA_IO_PIN_57	   57
+#define	 TUYA_IO_PIN_58	   58
+#define	 TUYA_IO_PIN_59	   59
+#define	 TUYA_IO_PIN_60	   60
+
+#define  TUYA_IO_PIN_MAX   0xFFFF
+/**
+ * @brief tuya pinmux func name
+ */
+
+typedef UINT16_T TUYA_PIN_FUNC_E;
+
+/**
+ * @brief tuya pinmux default func define
+ */
+
+#define  TUYA_IIC0_SCL       0x0
+#define  TUYA_IIC0_SDA       0x1
+#define  TUYA_IIC1_SCL       0x2
+#define  TUYA_IIC1_SDA       0x3
+#define  TUYA_IIC2_SCL       0x4
+#define  TUYA_IIC2_SDA       0x5
+
+#define  TUYA_UART0_TX       0x100
+#define  TUYA_UART0_RX       0x101
+#define  TUYA_UART0_RTS      0x102
+#define  TUYA_UART0_CTS      0x103
+#define  TUYA_UART1_TX       0x104
+#define  TUYA_UART1_RX       0x105
+#define  TUYA_UART1_RTS      0x106
+#define  TUYA_UART1_CTS      0x107
+#define  TUYA_UART2_TX       0x108
+#define  TUYA_UART2_RX       0x109
+#define  TUYA_UART2_RTS      0x10A
+#define  TUYA_UART2_CTS      0x10B
+#define  TUYA_UART3_TX       0x10C
+#define  TUYA_UART3_RX       0x10D
+#define  TUYA_UART3_RTS      0x10E
+#define  TUYA_UART3_CTS      0x10F
+
+#define  TUYA_SPI0_MISO      0x200
+#define  TUYA_SPI0_MOSI      0x201
+#define  TUYA_SPI0_CLK       0x202
+#define  TUYA_SPI0_CS        0x203
+#define  TUYA_SPI1_MISO      0x204
+#define  TUYA_SPI1_MOSI      0x205
+#define  TUYA_SPI1_CLK       0x206
+#define  TUYA_SPI1_CS        0x207
+#define  TUYA_SPI2_MISO      0x208
+#define  TUYA_SPI2_MOSI      0x209
+#define  TUYA_SPI2_CLK       0x20A
+#define  TUYA_SPI2_CS        0x20B
+
+#define  TUYA_PWM0           0x300
+#define  TUYA_PWM1           0x301
+#define  TUYA_PWM2           0x302
+#define  TUYA_PWM3           0x303
+#define  TUYA_PWM4           0x304
+#define  TUYA_PWM5           0x305
+
+#define  TUYA_ADC0           0x400
+#define  TUYA_ADC1           0x401
+#define  TUYA_ADC2           0x402
+#define  TUYA_ADC3           0x403
+#define  TUYA_ADC4           0x404
+#define  TUYA_ADC5           0x405
+
+#define  TUYA_DAC0           0x500
+#define  TUYA_DAC1           0x501
+#define  TUYA_DAC2           0x502
+#define  TUYA_DAC3           0x503
+#define  TUYA_DAC4           0x504
+#define  TUYA_DAC5           0x505
+
+#define  TUYA_I2S0_SCK       0x600
+#define  TUYA_I2S0_WS        0x601
+#define  TUYA_I2S0_SDO_0     0x602
+#define  TUYA_I2S0_SDI_0     0x603
+#define  TUYA_I2S1_SCK       0x604
+#define  TUYA_I2S1_WS        0x605
+#define  TUYA_I2S1_SDO_0     0x606
+#define  TUYA_I2S1_SDI_0     0x607
+
+#define  TUYA_GPIO           0x700
+
+#define  TUYA_PIN_FUNC_MAX   0xFFFF
+
+typedef  struct {
+    TUYA_PIN_NAME_E pin;
+    TUYA_PIN_FUNC_E pin_func;
+}TUYA_MUL_PIN_CFG_T;
+/**
+ * @brief gpio num
+ */
+typedef enum {
+    TUYA_GPIO_NUM_0,		    // GPIO 0
+    TUYA_GPIO_NUM_1,		    // GPIO 1
+    TUYA_GPIO_NUM_2,	        // GPIO 2
+    TUYA_GPIO_NUM_3,	        // GPIO 3
+    TUYA_GPIO_NUM_4,	        // GPIO 4
+    TUYA_GPIO_NUM_5,	        // GPIO 5
+    TUYA_GPIO_NUM_6,	        // GPIO 6
+    TUYA_GPIO_NUM_7,	        // GPIO 7
+    TUYA_GPIO_NUM_8,	        // GPIO 8
+    TUYA_GPIO_NUM_9,	        // GPIO 9
+    TUYA_GPIO_NUM_10,		// GPIO 10
+    TUYA_GPIO_NUM_11,		// GPIO 11
+    TUYA_GPIO_NUM_12,		// GPIO 12
+    TUYA_GPIO_NUM_13,		// GPIO 13
+    TUYA_GPIO_NUM_14,		// GPIO 14
+    TUYA_GPIO_NUM_15,		// GPIO 15
+    TUYA_GPIO_NUM_16,		// GPIO 16
+    TUYA_GPIO_NUM_17,		// GPIO 17
+    TUYA_GPIO_NUM_18,		// GPIO 18
+    TUYA_GPIO_NUM_19,		// GPIO 19
+    TUYA_GPIO_NUM_20,		// GPIO 20
+    TUYA_GPIO_NUM_21,		// GPIO 21
+    TUYA_GPIO_NUM_22,		// GPIO 22
+    TUYA_GPIO_NUM_23,		// GPIO 23
+    TUYA_GPIO_NUM_24,		// GPIO 24
+    TUYA_GPIO_NUM_25,		// GPIO 25
+    TUYA_GPIO_NUM_26,		// GPIO 26
+    TUYA_GPIO_NUM_27,		// GPIO 27
+    TUYA_GPIO_NUM_28,		// GPIO 28
+    TUYA_GPIO_NUM_29,		// GPIO 29
+    TUYA_GPIO_NUM_30,		// GPIO 30
+    TUYA_GPIO_NUM_31,		// GPIO 31
+    TUYA_GPIO_NUM_32,		// GPIO 32
+    TUYA_GPIO_NUM_33,		// GPIO 33
+    TUYA_GPIO_NUM_34,		// GPIO 34
+    TUYA_GPIO_NUM_35,
+    TUYA_GPIO_NUM_36,
+    TUYA_GPIO_NUM_37,
+    TUYA_GPIO_NUM_38,
+    TUYA_GPIO_NUM_39,
+    TUYA_GPIO_NUM_40,
+    TUYA_GPIO_NUM_41,
+    TUYA_GPIO_NUM_42,
+    TUYA_GPIO_NUM_43,
+    TUYA_GPIO_NUM_44,
+    TUYA_GPIO_NUM_45,
+    TUYA_GPIO_NUM_46,
+    TUYA_GPIO_NUM_47,
+    TUYA_GPIO_NUM_48,
+    TUYA_GPIO_NUM_49,
+    TUYA_GPIO_NUM_50,
+    TUYA_GPIO_NUM_51,
+    TUYA_GPIO_NUM_52,
+    TUYA_GPIO_NUM_53,
+    TUYA_GPIO_NUM_54,
+    TUYA_GPIO_NUM_55,
+    TUYA_GPIO_NUM_56,
+    TUYA_GPIO_NUM_57,
+    TUYA_GPIO_NUM_58,
+    TUYA_GPIO_NUM_59,
+    TUYA_GPIO_NUM_60,
+    TUYA_GPIO_NUM_61,
+    TUYA_GPIO_NUM_62,
+    TUYA_GPIO_NUM_63,
+    TUYA_GPIO_NUM_MAX,
+} TUYA_GPIO_NUM_E;
+
+/**
+ * @brief gpio level
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 631 : 
+typedef enum {
+    TUYA_GPIO_LEVEL_LOW = 0,
+    TUYA_GPIO_LEVEL_HIGH,
+} TUYA_GPIO_LEVEL_E;
+
+/**
+ * @brief gpio direction
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 639 : 
+typedef enum {
+    TUYA_GPIO_INPUT = 0,
+    TUYA_GPIO_OUTPUT,
+} TUYA_GPIO_DRCT_E;
+
+/**
+ * @brief gpio mode
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 647 : 
+typedef enum {
+    TUYA_GPIO_PULLUP = 0,        // for input
+    TUYA_GPIO_PULLDOWN,          // for input
+    TUYA_GPIO_HIGH_IMPEDANCE,    // for input
+    TUYA_GPIO_FLOATING,          // for input
+    TUYA_GPIO_PUSH_PULL,         // for output
+    TUYA_GPIO_OPENDRAIN,         // for output
+    TUYA_GPIO_OPENDRAIN_PULLUP,  // for output
+} TUYA_GPIO_MODE_E;
+
+/**
+ * @brief gpio interrupt mode
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 660 : 
+typedef enum {
+    TUYA_GPIO_IRQ_RISE  = 0,
+    TUYA_GPIO_IRQ_FALL,
+    TUYA_GPIO_IRQ_RISE_FALL,
+    TUYA_GPIO_IRQ_LOW,
+    TUYA_GPIO_IRQ_HIGH,
+} TUYA_GPIO_IRQ_E;
+
+/**
+ * @brief gpio config
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 671 : 
+typedef struct {
+    TUYA_GPIO_MODE_E  mode;
+    TUYA_GPIO_DRCT_E  direct;
+    TUYA_GPIO_LEVEL_E level;
+} TUYA_GPIO_BASE_CFG_T;
+
+typedef VOID_T (*TUYA_GPIO_IRQ_CB)(VOID_T *args);
+
+/**
+ * @brief gpio interrupt config
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 682 : 
+typedef struct {
+    TUYA_GPIO_IRQ_E      mode;
+    TUYA_GPIO_IRQ_CB     cb;
+    VOID_T              *arg;
+} TUYA_GPIO_IRQ_T;
+
+/**
+ * @brief i2c num
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 692 : 
+typedef enum {
+    TUYA_I2C_NUM_0,		    // I2C 0
+    TUYA_I2C_NUM_1,		    // I2C 1
+    TUYA_I2C_NUM_2,	        // I2C 2
+    TUYA_I2C_NUM_3,	        // I2C 3
+    TUYA_I2C_NUM_4,	        // I2C 4
+    TUYA_I2C_NUM_5,	        // I2C 5
+    TUYA_I2C_NUM_MAX,
+} TUYA_I2C_NUM_E;
+
+/**
+ * @brief i2c role
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 706 : 
+typedef enum {
+    TUYA_IIC_MODE_MASTER,   ///< IIC Master
+    TUYA_IIC_MODE_SLAVE     ///< IIC Slave
+}TUYA_IIC_ROLE_E;
+
+/**
+ * @brief i2c speed
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 715 : 
+typedef enum {
+    TUYA_IIC_BUS_SPEED_100K      = 0,    ///< Standard Speed (100kHz)
+    TUYA_IIC_BUS_SPEED_400K      = 1,    ///< Fast Speed     (400kHz)
+    TUYA_IIC_BUS_SPEED_1M        = 2,    ///< Fast+ Speed    (  1MHz)
+    TUYA_IIC_BUS_SPEED_3_4M      = 3     ///< High Speed     (3.4MHz)
+}TUYA_IIC_SPEED_E;
+
+/**
+ * @brief  IIC Address Mode
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 726 : 
+typedef enum {
+    TUYA_IIC_ADDRESS_7BIT        = 0,  ///< 7-bit address mode, or called 8-bit address mode
+    TUYA_IIC_ADDRESS_10BIT       = 1   ///< 10-bit address mode, or called 16-bit address mode
+} TUYA_IIC_ADDR_MODE_E;
+
+/**
+ * @brief i2c cfg
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 735 : 
+typedef struct {
+    TUYA_IIC_ROLE_E      role;
+    TUYA_IIC_SPEED_E     speed;
+    TUYA_IIC_ADDR_MODE_E addr_width;
+} TUYA_IIC_BASE_CFG_T;
+
+typedef struct {
+    UINT32_T busy             : 1;        ///< Transmitter/Receiver busy flag,1 is busy.
+{anonTUYA_IIC_STATUS_T} in tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) : 
+    UINT32_T bus_error        : 1;        ///< Bus error detected (cleared on start of next Master/Slave operation)
+} TUYA_IIC_STATUS_T;
+
+/**
+ * @brief i2c irq event
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 754 : 
+typedef enum {
+    TUYA_IIC_EVENT_TRANSFER_DONE        = 0,  ///< Master/Slave Transmit/Receive finished
+    TUYA_IIC_EVENT_TRANSFER_INCOMPLETE  = 1,  ///< Master/Slave Transmit/Receive incomplete transfer
+    TUYA_IIC_EVENT_SLAVE_TRANSMIT       = 2,  ///< Slave Transmit operation requested
+    TUYA_IIC_EVENT_SLAVE_RECEIVE        = 3,  ///< Slave Receive operation requested
+    TUYA_IIC_EVENT_ADDRESS_NACK         = 4,  ///< Address not acknowledged from Slave
+    TUYA_IIC_EVENT_GENERAL_CALL         = 5,  ///< General Call indication
+    TUYA_IIC_EVENT_ARBITRATION_LOST     = 6,  ///< Master lost arbitration
+    TUYA_IIC_EVENT_BUS_ERROR            = 7,  ///< Bus error detected (START/STOP at illegal position)
+    TUYA_IIC_EVENT_BUS_CLEAR            = 8   ///< Bus clear finished
+} TUYA_IIC_IRQ_EVT_E;
+
+typedef VOID_T (*TUYA_I2C_IRQ_CB)(TUYA_I2C_NUM_E port, TUYA_IIC_IRQ_EVT_E event);
+
+/**
+ * @brief i2c flag
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 771 : 
+ */
+// #define TUYA_I2C_FLAG_WR              (1u << 0) // write flag
+// #define TUYA_I2C_FLAG_RD              (1u << 1) // read flag
+// #define TUYA_I2C_FLAG_ADDR_10BIT      (1u << 2) // 10bits addr mode
+// #define TUYA_I2C_FLAG_NO_START        (1u << 3) // no start
+// #define TUYA_I2C_FLAG_IGNORE_NACK     (1u << 4) // ignore NACK
+// #define TUYA_I2C_FLAG_NO_READ_ACK     (1u << 5) // read without ACK
+// #define TUYA_I2C_FLAG_NO_ADDR         (1u << 6) // masg without addr
+
+/**
+ * @brief i2c message struct
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 788 : 
+//     UINT8_T         *buff;
+// } TUYA_I2C_MSG_T;
+
+/**
+ * @brief PWM flag
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 795 : 
+typedef enum {
+    TUYA_PWM_NUM_0,		    // PWM 0
+    TUYA_PWM_NUM_1,		    // PWM 1
+    TUYA_PWM_NUM_2,	        // PWM 2
+    TUYA_PWM_NUM_3,	        // PWM 3
+    TUYA_PWM_NUM_4,	        // PWM 4
+    TUYA_PWM_NUM_5,	        // PWM 5
+    TUYA_PWM_NUM_MAX,
+} TUYA_PWM_NUM_E;
+
+/**
+ * @brief pwm polarity
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 808 : 
+typedef enum {
+    TUYA_PWM_NEGATIVE = 0,
+    TUYA_PWM_POSITIVE,
+} TUYA_PWM_POLARITY_E;
+
+/**
+ * @brief pwm count mode
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 816 : 
+typedef enum {
+    TUYA_PWM_CNT_UP = 0,       //default use
+    TUYA_PWM_CNT_UP_AND_DOWN,  //can use in duplex complementation mode.
+} TUYA_PWM_COUNT_E;
+
+/**
+ * @brief pwm config
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 824 : 
+typedef struct {
+    TUYA_PWM_POLARITY_E polarity;
+    TUYA_PWM_COUNT_E    count_mode;
+    //pulse duty cycle = duty / cycle; exp duty = 5000,cycle = 10000; pulse duty cycle = 50%
+    UINT_T              duty;
+    UINT_T              cycle;
+    UINT_T              frequency;  // (bet: Hz)
+} TUYA_PWM_BASE_CFG_T;
+
+/**
+ * @brief spi mode
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 837 : 
+typedef enum {
+    TUYA_SPI_NUM_0,		    // SPI 0
+    TUYA_SPI_NUM_1,		    // SPI 1
+    TUYA_SPI_NUM_2,	        // SPI 2
+    TUYA_SPI_NUM_3,	        // SPI 3
+    TUYA_SPI_NUM_4,	        // SPI 4
+    TUYA_SPI_NUM_5,	        // SPI 5
+    TUYA_SPI_NUM_MAX,
+} TUYA_SPI_NUM_E;
+
+typedef enum {
+    TUYA_SPI_MODE0  = 0,    // CPOL = 0, CPHA = 0
+    TUYA_SPI_MODE1  = 1,    // CPOL = 0, CPHA = 1
+    TUYA_SPI_MODE2  = 2,    // CPOL = 1, CPHA = 0
+    TUYA_SPI_MODE3  = 3     // CPOL = 1, CPHA = 1
+} TUYA_SPI_MODE_E;
+
+/**
+ * @brief spi bit order
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 858 : 
+typedef enum {
+    TUYA_SPI_ORDER_MSB2LSB  = 0,    // SPI Bit order from MSB to LSB
+    TUYA_SPI_ORDER_LSB2MSB  = 1,    // SPI Bit order from LSB to MSB
+} TUYA_SPI_BIT_ORDER_E;
+
+/*----- SPI Control Codes: Mode -----*/
+typedef enum {
+    TUYA_SPI_ROLE_INACTIVE,           ///< SPI Inactive
+    TUYA_SPI_ROLE_MASTER,             ///< SPI Master (Output on MOSI, Input on MISO); arg = Bus Speed in bps
+    TUYA_SPI_ROLE_SLAVE,              ///< SPI Slave  (Output on MISO, Input on MOSI)
+    TUYA_SPI_ROLE_MASTER_SIMPLEX,     ///< SPI Master (Output/Input on MOSI); arg = Bus Speed in bps
+    TUYA_SPI_ROLE_SLAVE_SIMPLEX       ///< SPI Slave  (Output/Input on MISO)
+} TUYA_SPI_ROLE_E;
+
+/**
+ * @brief spi databits
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 876 : 
+typedef enum {
+    TUYA_SPI_DATA_BIT8  = 0,
+    TUYA_SPI_DATA_BIT16,
+} TUYA_SPI_DATABITS_E;
+
+/**
+ * @brief spi cs mode
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 885 : 
+typedef enum {
+    TUYA_SPI_AUTO_TYPE  = 0,            // hardware auto set
+    TUYA_SPI_SOFT_TYPE,                 // software manual set
+    TUYA_SPI_SOFT_ONE_WIRE_TYPE,        // software manual set(miso mosi pin multiplexing)
+} TUYA_SPI_TYPE_E;
+
+/**
+ * @brief spi config
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 895 : 
+typedef struct {
+    TUYA_SPI_ROLE_E      role;
+    TUYA_SPI_MODE_E      mode;
+    TUYA_SPI_TYPE_E      type;
+    TUYA_SPI_DATABITS_E  databits;
+    TUYA_SPI_BIT_ORDER_E bitorder;
+    UINT_T               freq_hz;
+    UINT_T               spi_dma_flags; /*!< SPI dma format , 1 use dma */ 
+} TUYA_SPI_BASE_CFG_T;
+
+/****** SPI Event *****/
+typedef enum {
+    TUYA_SPI_EVENT_TRANSFER_COMPLETE = 0,   ///< Data Transfer completed. tkl_spi_transfer to indicate that all the data has been transferred. The driver is ready for the next transfer operation
+    TUYA_SPI_EVENT_TX_COMPLETE,             ///< Data Transfer completed. Occurs after call to tkl_spi_send to indicate that all the data has been transferred. The driver is ready for the next transfer operation
+    TUYA_SPI_EVENT_RX_COMPLETE,             ///< Data Transfer completed. Occurs after call tkl_spi_receive to indicate that all the data has been transferred. The driver is ready for the next transfer operation
+    TUYA_SPI_EVENT_DATA_LOST,               ///< Data lost: Receive overflow / Transmit underflow. Occurs in slave mode when data is requested/sent by master but send/receive/transfer operation has not been started and indicates that data is lost. Occurs also in master mode when driver cannot transfer data fast enough.
+    TUYA_SPI_EVENT_MODE_FAULT               ///< Master Mode Fault (SS deactivated when Master).Occurs in master mode when Slave Select is deactivated and indicates Master Mode Fault. The driver is ready for the next transfer operation.
+}TUYA_SPI_IRQ_EVT_E;
+
+/**
+ * @brief spi cb,used in irq mode
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 917 : 
+ */
+typedef VOID_T (*TUYA_SPI_IRQ_CB)(TUYA_SPI_NUM_E port, TUYA_SPI_IRQ_EVT_E event);
+
+/**
+ * @brief SPI Status
+{anonTUYA_SPI_STATUS_T} in tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) : 
+    UINT32_T mode_fault : 1;              ///< Mode fault detected; optional (cleared on start of transfer operation)
+} TUYA_SPI_STATUS_T;
+
+/**
+ * @brief i2s message struct
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 938 : 
+typedef enum {
+    TUYA_I2S_NUM_0 = 0,                 /*!< I2S port 0 */
+    TUYA_I2S_NUM_1 = 1,                 /*!< I2S port 1 */
+    TUYA_I2S_NUM_MAX,                   /*!< I2S port max */
+} TUYA_I2S_NUM_E;
+
+/**
+ * @brief I2S Mode
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 948 : 
+typedef enum {
+    TUYA_I2S_MODE_MASTER       = (0x1 << 0),       /*!< Master mode*/
+    TUYA_I2S_MODE_SLAVE        = (0x1 << 1),       /*!< Slave mode*/
+    TUYA_I2S_MODE_TX           = (0x1 << 2),       /*!< TX mode*/
+    TUYA_I2S_MODE_RX           = (0x1 << 3),       /*!< RX mode*/
+} TUYA_I2S_MODE_E;
+
+typedef enum {
+    TUYA_I2S_BITS_PER_SAMPLE_8BIT    = 8,            /*!< data bit-width: 8 */
+    TUYA_I2S_BITS_PER_SAMPLE_16BIT   = 16,           /*!< data bit-width: 16 */
+    TUYA_I2S_BITS_PER_SAMPLE_24BIT   = 24,           /*!< data bit-width: 24 */
+    TUYA_I2S_BITS_PER_SAMPLE_32BIT   = 32,           /*!< data bit-width: 32 */
+} TUYA_I2S_BITS_PER_SAMP_E;
+
+typedef enum {
+    TUYA_I2S_CHANNEL_FMT_RIGHT_LEFT,         /*!< Separated left and right channel */
+    TUYA_I2S_CHANNEL_FMT_ALL_RIGHT,          /*!< Load right channel data in both two channels */
+    TUYA_I2S_CHANNEL_FMT_ALL_LEFT,           /*!< Load left channel data in both two channels */
+    TUYA_I2S_CHANNEL_FMT_ONLY_RIGHT,         /*!< Only load data in right channel (mono mode) */
+    TUYA_I2S_CHANNEL_FMT_ONLY_LEFT,          /*!< Only load data in left channel (mono mode) */
+} TUYA_I2S_CHANNEL_FMT_E;
+
+typedef enum {
+    I2S_COMM_FORMAT_STAND_I2S        = 0X01, /*!< I2S communication I2S Philips standard, data launch at second BCK*/
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 975 : 
+    I2S_COMM_FORMAT_STAND_MAX,               /*!< standard max*/
+} TUYA_I2S_COMM_FORMAT_E;
+
+typedef struct {
+    TUYA_I2S_MODE_E             mode;                       /*!< I2S work mode */
+    UINT32_T                    sample_rate;                /*!< I2S sample rate */
+    UINT32_T                    mclk;                       /*!< I2S mclk */
+    TUYA_I2S_BITS_PER_SAMP_E    bits_per_sample;            /*!< I2S sample bits in one channel */
+    TUYA_I2S_CHANNEL_FMT_E      channel_format;             /*!< I2S channel format.*/
+    TUYA_I2S_COMM_FORMAT_E      communication_format;       /*!< I2S communication format */
+    UINT32_T                    i2s_dma_flags;              /*!< I2S dma format , 1 use dma */  
+}TUYA_I2S_BASE_CFG_T;
+
+    // 文件访问权限
+#define TUYA_IRUSR  0400    /* Read by owner.  */
+#define TUYA_IWUSR  0200    /* Write by owner.  */
+#define TUYA_IXUSR  0100    /* Execute by owner.  */
+     
+     
+    // 缓冲区搜索起始位置类型
+#define TUYA_SEEK_SET   0   /* Seek from beginning of file.  */
+#define TUYA_SEEK_CUR   1   /* Seek from current position.  */
+#define TUYA_SEEK_END   2   /* Seek from end of file.  */
+     
+#define TUYA_R_OK       4
+#define TUYA_W_OK       2
+#define TUYA_X_OK       1
+#define TUYA_F_OK       0
+ 
+typedef VOID_T* TUYA_DIR;
+typedef VOID_T* TUYA_FILEINFO;
+typedef VOID_T* TUYA_FILE; 
+
+
+/**
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1012 : 
+typedef enum {
+    TUYA_CPU_SLEEP,
+    TUYA_CPU_DEEP_SLEEP,
+} TUYA_CPU_SLEEP_MODE_E;
+
+/**
+ * @brief pre-sleep callback
+ */
+typedef VOID_T (*TUYA_PRE_SLEEP_CB)(VOID_T);
+
+/**
+ * @brief post-wakeup callback
+ */
+typedef VOID_T (*TUYA_POST_WAKEUP_CB)(VOID_T);
+
+/**
+ * @brief sleep callback
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1030 : 
+typedef struct {
+    TUYA_PRE_SLEEP_CB pre_sleep_cb;
+    TUYA_POST_WAKEUP_CB post_wakeup_cb;
+} TUYA_SLEEP_CB_T;
+
+
+
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1048 : 
+typedef enum {
+    TUYA_RESET_REASON_POWERON    = 0,  ///< Poweron reset type, supply voltage < power-on threshold (TY_RST_POWER_OFF)
+    TUYA_RESET_REASON_HW_WDOG    = 1,  ///< Hardware watchdog reset occurred (TY_RST_HARDWARE_WATCHDOG)
+    TUYA_RESET_REASON_FAULT      = 2,  ///< A access fault occurred (TY_RST_FATAL_EXCEPTION)
+    TUYA_RESET_REASON_SW_WDOG    = 3,  ///< Software watchdog reset occurred (TY_RST_SOFTWARE_WATCHDOG)
+    TUYA_RESET_REASON_SOFTWARE   = 4,  ///< Software triggered reset (TY_RST_SOFTWARE)
+    TUYA_RESET_REASON_DEEPSLEEP  = 5,  ///< Reset caused by entering deep sleep (TY_RST_DEEPSLEEP)
+    TUYA_RESET_REASON_EXTERNAL   = 6,  ///< External reset trigger        (TY_RST_HARDWARE)
+    TUYA_RESET_REASON_UNKNOWN    = 7,  ///< Underterminable cause
+    TUYA_RESET_REASON_FIB        = 8,  ///< Reset originated from the FIB bootloader
+    TUYA_RESET_REASON_BOOTLOADER = 8,  ///< Reset relates to an bootloader
+    TUYA_RESET_REASON_CRASH      = 10, ///< Software crash
+    TUYA_RESET_REASON_FLASH      = 11, ///< Flash failure cause reset
+    TUYA_RESET_REASON_FATAL      = 12, ///< A non-recoverable fatal error occurred
+    TUYA_RESET_REASON_BROWNOUT   = 13, ///< Brown out
+    TUYA_RESET_REASON_UNSUPPORT  = 0xFF,
+} TUYA_RESET_REASON_E;
+
+
+/* ota */
+#define TUYA_OTA_FILE_MD5_LEN 16
+
+/*
+ * ota upgrade type
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1073 : 
+typedef enum {
+    TUYA_OTA_FULL        = 1,            ///< AB area switch, full package upgrade
+    TUYA_OTA_DIFF        = 2,            ///< fixed area, difference package upgrade
+} TUYA_OTA_TYPE_E;
+
+
+typedef enum {
+    TUYA_OTA_PATH_AIR    = 0,            ///< OTA from Wired/Wi-Fi/Cellular/NBIoT
+    TUYA_OTA_PATH_UART   = 1,            ///< OTA from uart for MF
+    TUYA_OTA_PATH_BLE    = 2,            ///< OTA from BLE protocol for subdev
+    TUYA_OTA_PATH_ZIGBEE = 3,            ///< OTA from Zigbee protocol for subdev
+    TUYA_OTA_PATH_SEC_A = 4,             ///< OTA from multi-section A
+    TUYA_OTA_PATH_SEC_B = 5,             ///< OTA from multi-section B    
+}TUYA_OTA_PATH_E;
+
+
+typedef struct {
+{anonTUYA_OTA_FIRMWARE_INFO_T} in tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) : 
+    UINT32_T crc32;
+    UINT8_T  md5[TUYA_OTA_FILE_MD5_LEN];
+} TUYA_OTA_FIRMWARE_INFO_T;
+
+/*
+ *  ota pack data
+{anonTUYA_OTA_DATA_T} in tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) : 
+    VOID_T*  pri_data;      ///< private pointer
+} TUYA_OTA_DATA_T;
+
+/**
+ * @brief uart type
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1110 : 
+typedef enum {
+    TUYA_UART_NUM_0,		    // UART 0
+    TUYA_UART_NUM_1,		    // UART 1
+    TUYA_UART_NUM_2,	        // UART 2
+    TUYA_UART_NUM_3,	        // UART 3
+    TUYA_UART_NUM_4,	        // UART 4
+    TUYA_UART_NUM_5,	        // UART 5
+    TUYA_UART_NUM_MAX,
+} TUYA_UART_NUM_E;
+
+typedef enum {
+    TUYA_UART_SYS = 0,
+    TUYA_UART_USB,
+    TUYA_UART_SDIO,
+    TUYA_UART_MAX_TYPE,
+} TUYA_UART_TYPE_E;
+
+/**
+ * @brief uart databits
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1131 : 
+typedef enum {
+    TUYA_UART_DATA_LEN_5BIT      = 0x05,
+    TUYA_UART_DATA_LEN_6BIT      = 0x06,
+    TUYA_UART_DATA_LEN_7BIT      = 0x07,
+    TUYA_UART_DATA_LEN_8BIT      = 0x08,
+} TUYA_UART_DATA_LEN_E;
+
+/**
+ * @brief uart stop bits
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1142 : 
+typedef enum {
+    TUYA_UART_STOP_LEN_1BIT      = 0x01,
+    TUYA_UART_STOP_LEN_1_5BIT1   = 0x02,
+    TUYA_UART_STOP_LEN_2BIT      = 0x03,
+} TUYA_UART_STOP_LEN_E;
+
+/**
+ * @brief uart parity
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1152 : 
+typedef enum {
+    TUYA_UART_PARITY_TYPE_NONE    = 0,
+    TUYA_UART_PARITY_TYPE_ODD     = 1,
+    TUYA_UART_PARITY_TYPE_EVEN    = 2,
+} TUYA_UART_PARITY_TYPE_E;
+
+typedef enum {
+    TUYA_UART_FLOWCTRL_NONE = 0,
+    TUYA_UART_FLOWCTRL_RTSCTS,
+    TUYA_UART_FLOWCTRL_XONXOFF,
+    TUYA_UART_FLOWCTRL_DTRDSR,
+} TUYA_UART_FLOWCTRL_TYPE_E;
+
+#define TUYA_UART_PORT_ID(port_type, port_num) ((((port_type) << 16) & 0xFFFF0000) | (port_num))
+#define TUYA_UART_GET_PORT_TYPE(port_id) (((port_id) >> 16) & 0xFFFF)
+#define TUYA_UART_GET_PORT_NUMBER(port_id) ((port_id) & 0xFFFF)
+
+/**
+ * @brief uart config
+{anonTUYA_UART_BASE_CFG_T} in tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) : 
+    UINT_T                      baudrate;
+    TUYA_UART_PARITY_TYPE_E     parity;
+    TUYA_UART_DATA_LEN_E        databits;
+    TUYA_UART_STOP_LEN_E        stopbits;
+    TUYA_UART_FLOWCTRL_TYPE_E   flowctrl;
+} TUYA_UART_BASE_CFG_T;
+
+
+/**
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1186 : 
+ *                     the high 16bit - uart type
+ *                                      it's value must be one of the TUYA_UART_TYPE_E type
+ *                     the low 16bit - uart port number
+ *                     you can input like this TUYA_UART_PORT_ID(TUYA_UART_SYS, 2)
+ * @return none
+ */
+typedef VOID_T (*TUYA_UART_IRQ_CB)(TUYA_UART_NUM_E port_id);
+
+/**
+ * @brief uart contrl command
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1198 : 
+typedef enum{
+    TUYA_UART_SUSPEND_CMD = 0,
+    TUYA_UART_RESUME_CMD,
+    TUYA_UART_FLUSH_CMD,
+    TUYA_UART_RECONFIG_CMD,
+    TUYA_UART_USER_CMD,
+    TUYA_UART_MAX_CMD = 1000
+}TUYA_UART_IOCTL_CMD_E;
+
+
+typedef struct {
+    UINT_T interval_ms;
+} TUYA_WDOG_BASE_CFG_T;
+
+/**
+ * @brief timer num
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1216 : 
+typedef enum {
+    TUYA_TIMER_NUM_0,		    // TIMER 0
+    TUYA_TIMER_NUM_1,		    // TIMER 1
+    TUYA_TIMER_NUM_2,	        // TIMER 2
+    TUYA_TIMER_NUM_3,	        // TIMER 3
+    TUYA_TIMER_NUM_4,	        // TIMER 4
+    TUYA_TIMER_NUM_5,	        // TIMER 5
+    TUYA_TIMER_NUM_MAX,
+} TUYA_TIMER_NUM_E;
+
+#define TUYA_TIMER_CFG(__CFG, __MODE, __CB, __ARG)      \
+        (__CFG)->mode = __MODE;                         \
+        (__CFG)->cb   = __CB;                           \
+        (__CFG)->arg  = __ARG
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1231 : 
+typedef enum {
+    TUYA_TIMER_MODE_ONCE = 0,
+    TUYA_TIMER_MODE_PERIOD
+} TUYA_TIMER_MODE_E;
+
+typedef VOID (*TUYA_TIMER_ISR_CB)(VOID *args);
+
+typedef struct {
+    TUYA_TIMER_MODE_E   mode;
+    TUYA_TIMER_ISR_CB   cb;
+    VOID                *args;
+} TUYA_TIMER_BASE_CFG_T;
+
+
+/**
+ * @brief tuya wake source gpio
+ */
+typedef struct {
+    TUYA_GPIO_NUM_E gpio_num;
+    TUYA_GPIO_LEVEL_E level;
+} TUYA_WAKEUP_SOURCE_GPIO_T;
+
+/**
+ * @brief tuya wake source timer
+ */
+typedef struct {
+    TUYA_TIMER_NUM_E timer_num;
+    TUYA_TIMER_MODE_E mode;
+    UINT32_T ms;
+} TUYA_WAKEUP_SOURCE_TIMER_T;
+
+/**
+ * @brief tuya wake source
+ */
+typedef enum {
+    TUYA_WAKEUP_SOURCE_GPIO,
+    TUYA_WAKEUP_SOURCE_TIMER,
+} TUYA_WAKEUP_SOURCE_E;
+
+/**
+ * @brief tuya wake source base cfg
+ */
+typedef struct {
+    TUYA_WAKEUP_SOURCE_E source;
+    union {
+        TUYA_WAKEUP_SOURCE_GPIO_T gpio_param;
+        TUYA_WAKEUP_SOURCE_TIMER_T timer_param;
+    } wakeup_para;
+}TUYA_WAKEUP_SOURCE_BASE_CFG_T;
+
+
+#ifndef TUYA_FD_MAX_COUNT
+#if defined(SYSTEM_LINUX) && (OPERATING_SYSTEM == SYSTEM_LINUX)
+/* max fd numbers in linux */
+#define TUYA_FD_MAX_COUNT    (1024)
+#else
+/* max fd numbers in other system */
+#define TUYA_FD_MAX_COUNT    (64)
+#endif
+#endif
+
+typedef INT_T TUYA_OPT_LEVEL;
+typedef INT_T TUYA_OPT_NAME;
+
+/* tuyaos definition of fd operations */
+typedef struct {
+    UINT8_T placeholder[(TUYA_FD_MAX_COUNT+7)/8];
+} TUYA_FD_SET_T;
+
+/* tuyaos definition of socket protocol */
+typedef enum {
+    PROTOCOL_TCP = 0,
+    PROTOCOL_UDP = 1,
+    PROTOCOL_RAW = 2,
+}TUYA_PROTOCOL_TYPE_E;
+
+/* tuyaos definition of transfer type */
+typedef enum {
+    TRANS_RECV = 0,
+    TRANS_SEND = 1,
+}TUYA_TRANS_TYPE_E;
+
+
+/* tuyaos definition of IP addr */
+typedef UINT_T TUYA_IP_ADDR_T;
+
+/* tuyaos errorno */
+typedef INT_T TUYA_ERRNO;
+#define UNW_SUCCESS       0
+#define UNW_FAIL          -1
+#define UNW_EINTR         -2
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1348 : 
+#define UNW_EMSGSIZE      -29
+#define TUYA_ERRNO_NOT_SUPPORT 255
+
+
+#ifdef __cplusplus
+tuya_cloud_types.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1355 : 
+
+#endif // TUYA_CLOUD_TYPES_H
+
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 1 : 
+/*******************************************************************
+*  File: tuya_error_code.h
+*  Author: auto generate by tuya code gen system
+*  Date: 2021-07-16
+*  Description:this file defined the error code of tuya IOT 
+*  you can change it manully if needed
+*  Copyright(C),2018-2020, tuya inc, www.tuya.comm
+*******************************************************************/
+
+#ifndef TUYA_ERROR_CODE_H
+#define TUYA_ERROR_CODE_H
+
+#ifdef __cplusplus
+extern "C" {
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 619 : 
+
+#define TUYA_CHECK_NULL_RETURN(x, y)\
+do{\
+    if (NULL == (x)){\
+        PR_ERR("%s null", #x);\
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 628 : 
+
+#define TUYA_CHECK_NULL_GOTO(x, label)\
+do{\
+    if (NULL == (x)){\
+        PR_ERR("%s null", #x);\
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 637 : 
+
+#define TUYA_CALL_ERR_LOG(func)\
+do{\
+    rt = (func);\
+    if (OPRT_OK != (rt))\
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 645 : 
+
+#define TUYA_CALL_ERR_GOTO(func, label)\
+do{\
+    rt = (func);\
+    if (OPRT_OK != (rt)){\
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 655 : 
+
+#define TUYA_CALL_ERR_RETURN(func)\
+do{\
+    rt = (func);\
+    if (OPRT_OK != (rt)){\
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 665 : 
+
+#define TUYA_CALL_ERR_RETURN_VAL(func, y)\
+do{\
+    rt = (func);\
+    if (OPRT_OK != (rt)){\
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 675 : 
+
+#define TUYA_CALL_ERR_LOG_SEQ_RETURN_VAL(func, y, point)\
+do{\
+    rt = (func);\
+    if (OPRT_OK != (rt)){\
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 686 : 
+
+#define TUYA_CALL_ERR_LOG_SEQ_RETURN(func, point)\
+do{\
+    rt = (func);\
+    if (OPRT_OK != (rt)){\
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 697 : 
+
+#define TUYA_CALL_ERR_LOG_SEQ_GOTO(func, label)\
+do{\
+    rt = (func);\
+    if (OPRT_OK != (rt)){\
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 708 : 
+
+#define TUYA_CALL_ERR_LOG_SEQ(func)\
+do{\
+    rt = (func);\
+    if (OPRT_OK != (rt)) {\
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 718 : 
+
+#define TUYA_CHECK_NULL_LOG_SEQ_RETURN(x, y, point)\
+do{\
+    if (NULL == (x)){\
+        PR_ERR("%s null", #x);\
+tuya_error_code.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 728 : 
+
+#define TUYA_CHECK_NULL_LOG_SEQ_GOTO(x, point, label)\
+do{\
+    if (NULL == (x)){\
+        PR_ERR("%s null", #x);\
+tuya_iot_config.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 1 : 
+/*
+tuya_iot_config.h
+Copyright(C),2018-2020, 涂鸦科技 www.tuya.comm
+*/
+
+/* AUTO-GENERATED FILE. DO NOT MODIFY !!!
+*
+* This config file is automatically generated by tuya cross-build system.
+* It should not be modified by hand.
+*/
+
+#ifndef TUYA_IOT_CONFIG_H
+#define TUYA_IOT_CONFIG_H
+
+#ifdef __cplusplus
+extern "C" {
+tuya_iot_config.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 38 : 
+#define TARGET_PLATFORM       "efr32_zigbee"
+#define PROJECT_NAME          "tuyaos-subdev-zg"
+#define SDK_ID                "tuyaos-subdev-zg_1.0.6_efr32_zigbee_zigbee-com_0.0.16"
+// Generated by Tuya (https://www.tuya.com)
+// 基于项目 tuyaos-subdev-zg (1.0.4)
+// 基于工具链 efr32_zigbee (0.0.12)
+
+#define ENABLE_TAL_ZIGBEE 1
+tuya_iot_config.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 72 : 
+
+#define TUYA_FLASH_TYPE_MAX_PARTITION_NUM 1
+
+#define ENABLE_UART 1
+
+tuya_iot_config.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\base\include) line 95 : 
+#if defined (__IAR_SYSTEMS_ICC__) //for ICCARM
+    #define TUYA_PACK_START(X) _Pragma(STRINGIZE(pack(X)))
+    #define TUYA_PACK_END()    _Pragma("pack()")
+#else //for GCC
+    #define TUYA_PACK_START(X)
+    #define TUYA_PACK_END()
+#endif
+
+#ifndef TUYA_WEAK_ATTRIBUTE
+    #if defined (__IAR_SYSTEMS_ICC__) //for ICCARM
+        #define TUYA_WEAK_ATTRIBUTE __weak
+    #else //for GCC
+        #define TUYA_WEAK_ATTRIBUTE __attribute__ ((weak))
+    #endif
+#endif
+
+#if defined (__IAR_SYSTEMS_ICC__) //for ICCARM
+    #define TUYA_OPTIMIZE_NONE _Pragma("optimize=none")
+#else //for GCC
+    #define TUYA_OPTIMIZE_NONE
+#endif
+
+/* custom settings */
+tuya_sdk_callback.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 1 : 
+/**
+* @file tuya_sdk_callback.c
+* @brief Common process - adapter the flash api
+* @version 0.1
+* @date 2021-10-22
+*
+* @copyright Copyright 2020-2021 Tuya Inc. All Rights Reserved.
+*
+*/
+#include "tuya_tools.h"
+#include <stdio.h>
+#include "tkl_gpio.h"
+#include "tkl_uart.h"
+__app_power_on_check_rst_cnt_proc in tuya_sdk_callback.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+    TAL_KV_STATUS_T v_ret =TAL_KV_SUCC;
+    TUYA_RESET_REASON_E v_reason = tal_system_get_reset_reason(NULL);
+
+    TAL_PR_DEBUG("Reset Reason: %d", v_reason);
+    if (TUYA_RESET_REASON_HW_WDOG == v_reason)
+    {
+        return 1;
+    }
+tuya_sdk_callback.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 301 : 
+ */
+OPERATE_RET tuya_init_first(VOID_T)
+{
+    TAL_UART_CFG_T uart_cfg = {
+        .rx_buffer_size = 256,
+tuya_init_first in tuya_sdk_callback.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+            .baudrate = 115200,
+            .parity = TUYA_UART_PARITY_TYPE_NONE,
+            .databits = TUYA_UART_DATA_LEN_8BIT,
+            .stopbits = TUYA_UART_STOP_LEN_1BIT,
+            .flowctrl = TUYA_UART_FLOWCTRL_NONE,
+        }
+    };
+    tal_uart_init(USER_UART0, &uart_cfg);
+tuya_sdk_callback.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 330 : 
+ */
+OPERATE_RET tuya_init_second(VOID_T)
+{
+    //initialize firmware infomation
+    TAL_PR_DEBUG("Application version:%d", FIRMWARE_VER);
+tuya_sdk_callback.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 378 : 
+ */
+OPERATE_RET tuya_init_third(VOID_T)
+{
+    TAL_PR_DEBUG("/*********third init*********/");
+
+tuya_sdk_callback.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 396 : 
+ */
+OPERATE_RET tuya_init_last(VOID_T)
+{
+    UINT8_T version;
+    
+tuya_init_last in tuya_sdk_callback.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+            .baudrate = 115200,
+            .parity = TUYA_UART_PARITY_TYPE_NONE,
+            .databits = TUYA_UART_DATA_LEN_8BIT,
+            .stopbits = TUYA_UART_STOP_LEN_1BIT,
+            .flowctrl = TUYA_UART_FLOWCTRL_NONE,
+        }
+    };
+    tal_uart_init(USER_UART0, &uart_cfg);
+
+    tal_zg_read_attribute(TUYA_PRIMARY_ENDPOINT,
+                          CLUSTER_BASIC_CLUSTER_ID,
+                          ATTR_APPLICATION_VERSION_ATTRIBUTE_ID,
+                          (VOID_T *)&version,
+tuya_sdk_callback.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) line 430 : 
+ */
+OPERATE_RET tuya_main_loop(VOID_T)
+{
+    return OPRT_OK;
+}
+tal_zcl_specific_msg_recv_callback in tuya_sdk_callback.c (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\apps\pho_radar_zs3l\src) : 
+    break;
+    case CLUSTER_PRIVATE_TUYA_CLUSTER_ID:
+    {
+        break;
+    }
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 1 : 
+/**
+ * @file tuya_tools.h
+ * @brief tuya common api module
+ * @version 1.0
+ * @date 2019-10-13
+ * 
+ * @copyright Copyright 2021-2025 Tuya Inc. All Rights Reserved.
+ * 
+ */
+#ifndef __TUYA_TOOLS_H__
+#define __TUYA_TOOLS_H__
+
+#include "tuya_cloud_types.h"
+
+#ifdef __cplusplus
+    extern "C" {
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 27 : 
+ */
+#define TUYA_PALIGN_DOWN(x, align)  (x & ~(align-1))
+
+/**
+ * @brief align and round up
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 37 : 
+ */
+#define TUYA_PALIGN_UP(x, align)    ((x + (align-1)) & ~(align-1))
+
+
+/**
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 47 : 
+ */
+SIZE_T tuya_strlen(const CHAR_T *str);
+
+/**
+ * @brief string copy
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 57 : 
+ */
+CHAR_T *tuya_strcpy(CHAR_T *dst, const CHAR_T *src);
+
+/**
+ * @brief string cat
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 67 : 
+ */
+CHAR_T *tuya_strcat(CHAR_T* dst, const CHAR_T* src);
+
+/**
+ * @brief compare the first n characters of two string
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 78 : 
+ */
+INT_T tuya_strncasecmp(const CHAR_T *s1, const CHAR_T *s2, SIZE_T n);
+
+/**
+ * @brief compare characters of two string
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 88 : 
+ */
+INT_T tuya_strcmp(const CHAR_T *src, const CHAR_T *dst);
+
+/**
+ * @brief convert character to hex, if '0'-'f'/'F' -> 0-15, else 0
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 97 : 
+ */
+UCHAR_T tuya_asc2hex(CHAR_T asccode);
+
+/**
+ * @brief convert the hex character array to hex array
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 108 : 
+ */
+VOID_T tuya_ascs2hex(UCHAR_T *hex, UCHAR_T *ascs, INT_T srclen);
+
+/**
+ * @brief convert the input hex array to string array
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 120 : 
+ */
+VOID_T tuya_hex2str(UCHAR_T *str, UCHAR_T *hex, INT_T hexlen);
+
+/**
+ * @brief convert the input string to number
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 132 : 
+ */
+BOOL_T tuya_str2num(UINT_T *number, const CHAR_T *str, UINT8_T strlen);
+
+/**
+ * @brief int number convert to buff 
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 143 : 
+ */
+UINT_T tuya_int2intArray(UINT_T num, UINT8_T *intArray, UINT8_T len);
+
+/**
+ * @brief int array convert to a int number 
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 154 : 
+ */
+UINT_T tuya_intArray2int(UINT8_T *intArray, UINT_T index, UINT8_T len);
+
+/**
+ * @note buff reversal function
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 163 : 
+ */
+VOID_T tuya_buff_reverse(UINT8_T *buf, UINT16_T len);
+
+/**
+ * @note data reversal function
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 173 : 
+ */
+VOID_T tuya_data_reverse(UINT8_T *dst, UINT8_T *src, UINT16_T srclen);
+
+/**
+ * @brief sort the CHAR_T in the buf according ascii value
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 184 : 
+ */
+VOID_T tuya_byte_sort(UCHAR_T is_ascend, UCHAR_T *buf, INT_T len);
+
+/**
+ * @brief find <ch> in <str>, start find in index <revr_index>, find in reverse order.
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 195 : 
+ */
+INT_T tuya_find_char_with_reverse_idx(const CHAR_T *str, const INT_T index, const CHAR_T ch);
+
+/**
+ * @brief calculate the number of bits 1 in a number
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 204 : 
+ */
+UINT_T tuya_bit1_count(UINT_T num);
+
+/**
+ * @brief the software calculates the number of leading zeros
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 213 : 
+ */
+UINT_T tuya_leading_zeros_count(UINT_T num);
+
+/**
+ * @brief 8-bit cumulative checksum calculation 
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 223 : 
+ */
+UINT8_T tuya_check_sum8(UINT8_T *buf, UINT32_T len);
+
+/**
+ * @brief 16-bit cumulative checksum calculation 
+tuya_tools.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\utilities\include) line 233 : 
+ */
+UINT16_T tuya_check_sum16(UINT8_T *buf, UINT32_T len);
+
+
+#ifdef __cplusplus
+tuya_zigbee_attribute.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 1 : 
+ /**
+ * @file tuya_zigbee_attribute.h
+ * @brief Common process - zigbee attribute
+ * @version 1.0.0
+ * @date 2021-05-07
+ *
+ * @copyright Copyright 2021-2022 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+#ifndef __TUYA_ZIGBEE_ATTRIBUTE_H__
+#define __TUYA_ZIGBEE_ATTRIBUTE_H__
+
+
+#ifdef __cplusplus
+tuya_zigbee_attribute.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 29 : 
+#define ATTR_MASK_CLIENT                (0x40)  // client attribute
+#define ATTR_MASK_TOKEN_FAST            (0x80)  // saved to a tuya token
+
+
+/*
+tuya_zigbee_command.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 1 : 
+ /**
+ * @file tuya_zigbee_command.h
+ * @brief Common process - zigbee command
+ * @version 1.0.0
+ * @date 2021-05-07
+ *
+ * @copyright Copyright 2021-2022 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+#ifndef __TUYA_ZIGBEE_COMMAND_H__
+#define __TUYA_ZIGBEE_COMMAND_H__
+
+
+#ifdef __cplusplus
+tuya_zigbee_stack.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 1 : 
+ /**
+ * @file tuya_zigbee_stack.h
+ * @brief Common process - zigbee stack
+ * @version 1.0.0
+ * @date 2021-05-07
+ *
+ * @copyright Copyright 2021-2022 Tuya Inc. All Rights Reserved.
+ *
+ */
+
+#ifndef __TUYA_ZIGBEE_STACK_H__
+#define __TUYA_ZIGBEE_STACK_H__
+
+
+#ifdef __cplusplus
+tuya_zigbee_stack.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 18 : 
+
+#define TUYA_ZDO_ENDPOINT           0x00
+#define TUYA_PRIMARY_ENDPOINT       0x01
+#define TUYA_BROADCAST_ENDPOINT     0xFF
+
+#define TUYA_GATEWAY_ADDRESS        0x0000
+
+/**
+ * the duration of scan period(the duration of channel reception), 
+tuya_zigbee_stack.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 283 : 
+
+    // tuya private cluster
+    CLUSTER_TUYA_COMMON_CLUSTER_ID = 0xE000,
+    CLUSTER_TUYA_ELECTRICIAN_CLUSTER_ID = 0xE001,
+    CLUSTER_TUYA_SENSOR_CLUSTER_ID = 0xE002,
+    CLUSTER_TUYA_LIGHT_CLUSTER_ID = 0xE003,
+    
+    CLUSTER_TUYA_MANAGER_CLUSTER_ID = 0xEE00,
+    CLUSTER_PRIVATE_TUYA_CLUSTER_ID = 0xEF00,
+    CLUSTER_TUYA_MF_TEST_CLUSTER_ID = 0xEEFF,
+} ZG_CLUSTER_ID_E;
+
+/*
+tuya_zigbee_stack.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 298 : 
+typedef enum {
+  TUYA_ZCL_STA_SUCCESS                     = 0x00,
+  TUYA_ZCL_STA_FAILURE                     = 0x01,
+  TUYA_ZCL_STA_NOT_AUTHORIZED              = 0x7E,
+  TUYA_ZCL_STA_MALFORMED_COMMAND           = 0x80,
+  TUYA_ZCL_STA_UNSUP_COMMAND               = 0x81,
+  TUYA_ZCL_STA_UNSUP_GENERAL_COMMAND       = 0x82,
+  TUYA_ZCL_STA_UNSUP_MANUF_CLUSTER_COMMAND = 0x83,
+  TUYA_ZCL_STA_UNSUP_MANUF_GENERAL_COMMAND = 0x84,
+  TUYA_ZCL_STA_INVALID_FIELD               = 0x85,
+  TUYA_ZCL_STA_UNSUPPORTED_ATTRIBUTE       = 0x86,
+  TUYA_ZCL_STA_INVALID_VALUE               = 0x87,
+  TUYA_ZCL_STA_READ_ONLY                   = 0x88,
+  TUYA_ZCL_STA_INSUFFICIENT_SPACE          = 0x89,
+  TUYA_ZCL_STA_DUPLICATE_EXISTS            = 0x8A,
+  TUYA_ZCL_STA_NOT_FOUND                   = 0x8B,
+  TUYA_ZCL_STA_UNREPORTABLE_ATTRIBUTE      = 0x8C,
+  TUYA_ZCL_STA_INVALID_DATA_TYPE           = 0x8D,
+  TUYA_ZCL_STA_INVALID_SELECTOR            = 0x8E,
+  TUYA_ZCL_STA_WRITE_ONLY                  = 0x8F,
+  TUYA_ZCL_STA_INCONSISTENT_STARTUP_STATE  = 0x90,
+  TUYA_ZCL_STA_DEFINED_OUT_OF_BAND         = 0x91,
+  TUYA_ZCL_STA_ACTION_DENIED               = 0x93,
+  TUYA_ZCL_STA_TIMEOUT                     = 0x94,
+  TUYA_ZCL_STA_ABORT                       = 0x95,
+  TUYA_ZCL_STA_INVALID_IMAGE               = 0x96,
+  TUYA_ZCL_STA_WAIT_FOR_DATA               = 0x97,
+  TUYA_ZCL_STA_NO_IMAGE_AVAILABLE          = 0x98,
+  TUYA_ZCL_STA_REQUIRE_MORE_IMAGE          = 0x99,
+  TUYA_ZCL_STA_NOTIFICATION_PENDING        = 0x9A,
+  TUYA_ZCL_STA_HARDWARE_FAILURE            = 0xC0,
+  TUYA_ZCL_STA_SOFTWARE_FAILURE            = 0xC1,
+  TUYA_ZCL_STA_UNSUPPORTED_CLUSTER         = 0xC3,
+  TUYA_ZCL_STA_LIMIT_REACHED               = 0xC4,
+} ZG_CMD_STATUS_E;
+
+
+tuya_zigbee_stack.h (D:\cccc2022\CODE\workspace\zigbee_sdk\EFR32MG21\Wind_ide\pho_radar_zs3l\software\TuyaOS\include\adapter\zigbee\include) line 337 : 
+ */
+#include "tuya_zigbee_attribute.h"
+
+/*
+ * zigbee command ID
+ */
+#include "tuya_zigbee_command.h"
+
+
+#ifdef __cplusplus
